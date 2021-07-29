@@ -1,0 +1,48 @@
+:mod:`mdf_reader.common.pandas_TextParser_hdlr`
+===============================================
+
+.. py:module:: mdf_reader.common.pandas_TextParser_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Tue Apr  2 10:34:56 2019
+
+   Assumes we are never writing a header!
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.pandas_TextParser_hdlr.restore
+   mdf_reader.common.pandas_TextParser_hdlr.is_not_empty
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.pandas_TextParser_hdlr.logger
+
+
+.. data:: logger
+   
+
+   
+
+.. function:: restore(TextParser_ref, TextParser_options)
+
+
+.. function:: is_not_empty(TextParser)
+
+

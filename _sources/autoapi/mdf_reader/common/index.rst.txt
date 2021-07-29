@@ -1,0 +1,20 @@
+:mod:`mdf_reader.common`
+========================
+
+.. py:module:: mdf_reader.common
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   converters/index.rst
+   decoders/index.rst
+   functions/index.rst
+   logging_hdlr/index.rst
+   pandas_TextParser_hdlr/index.rst
+   plots/index.rst
+
+

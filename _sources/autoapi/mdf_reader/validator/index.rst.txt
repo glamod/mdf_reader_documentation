@@ -1,0 +1,15 @@
+:mod:`mdf_reader.validator`
+===========================
+
+.. py:module:: mdf_reader.validator
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   validate/index.rst
+
+

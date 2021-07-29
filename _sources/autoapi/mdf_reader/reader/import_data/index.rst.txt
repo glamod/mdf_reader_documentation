@@ -1,0 +1,42 @@
+:mod:`mdf_reader.reader.import_data`
+====================================
+
+.. py:module:: mdf_reader.reader.import_data
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.reader.import_data.main
+
+
+
+.. function:: main(source, encoding=None, chunksize=None, skiprows=None)
+
+   Returns an iterable object with a pandas dataframe from
+   an input data source. The pandas dataframe has a report
+   per row and a single column with the full report as a
+   block string.
+   Currently only supports a data file path as source data,
+   but could be easily extended to accept a different
+   source object.
+
+   :param source: Path to data file
+   :type source: str
+
+   :keyword chunksize: Number of lines to chunk the input data into
+   :kwtype chunksize: int, opt
+   :keyword skiprows: Number of lines to skip from input file
+   :kwtype skiprows: int, opt
+
+   :returns: List of with a single pandas dataframe
+             or pandas.io.parsers.textfilereader
+   :rtype: iterable
+
+

@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tool set up &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tool overview" href="tool-overview.html" />
+    <link rel="prev" title="Data reader toolbox documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tool set up</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tool-set-up.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tool-set-up">
+<h1>Tool set up<a class="headerlink" href="#tool-set-up" title="Permalink to this headline">¶</a></h1>
+<p>The mdf_reader is a pure Python package, but it has a few dependencies that rely in a specific python and module version. The tool has been tested with Python version 3.7 on Linux and Mac OS systems.</p>
+<div class="section" id="clone-the-repository">
+<h2>1. Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>Clone the latest version via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:glamod/mdf_reader.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-a-python-environment">
+<h2>2. Install a python environment<a class="headerlink" href="#install-a-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>For this you can use and install <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> and create a new virtual environment
+with a the python version needed (<strong>3.7.3</strong>) using <a class="reference external" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>.</p>
+<p>If you install pyenv and pyenv-virtualenv you can create an environment with a fix python version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pyenv install 3.7.3
+$ pyenv virtualenv 3.7.3 mdfreader_env
+$ pyenv activate mdfreader_env
+</pre></div>
+</div>
+<p>As another option you can use conda. See the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands">conda docs</a>
+for more information about how to create an environment from the command line.</p>
+<p>Or you can do what I usually do (much faster), install <a class="reference external" href="https://github.com/mamba-org/mamba">mamba</a>.</p>
+</div>
+<div class="section" id="install-dependencies">
+<h2>3. Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>If you used <strong>pyenv</strong> for your environment, once activated you can install the dependencies using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy==1.16.2 pandas==0.24.2 matplotlib==3.0.3
+</pre></div>
+</div>
+<p>Check the conda or mamba documentation to install dependencies via those tools.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>The pandas version is particularly important since needs to be compatible with the way of importing the json module used in the code.</strong></p>
+</div>
+</div>
+<div class="section" id="optional-step-install-jupyter-notebook">
+<h2>4. Optional step: install jupyter notebook<a class="headerlink" href="#optional-step-install-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Install <a class="reference external" href="https://jupyter.org/install">jupyter notebook</a> and <a class="reference external" href="https://jupyter.readthedocs.io/en/latest/install.html">IPython</a> for an easy overview of the tool and to make use of the tutorials under <code class="docutils literal notranslate"><span class="pre">~/mdf_reader/docs/notebooks</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install notebook
+$ pip install ipykernel
+</pre></div>
+</div>
+<p>Check the libraries documentation in the links above to install them via conda or mamba.</p>
+<p>Add a new kernel to load your notebooks with the right environment (<code class="docutils literal notranslate"><span class="pre">mdfreader_env</span></code>) run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m ipykernel install --user --name=mdfreader_env
+$ jupyter notebook
+</pre></div>
+</div>
+<p>When you open the notebook, make sure you select the kernel or environment with the name <code class="docutils literal notranslate"><span class="pre">mdfreader_env</span></code>. You can also
+test the notebook by adding and executing the following code in a jupyter-notebook cell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">python_version</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">python_version</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And you should see the following information for your <code class="docutils literal notranslate"><span class="pre">mdfreader_env</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">username</span><span class="o">/.</span><span class="n">pyenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.7.3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">mdfreader_env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
+<span class="mf">3.7.3</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Feb</span>  <span class="mi">4</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">54</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Clang</span> <span class="mf">12.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1200.0.32.28</span><span class="p">)]</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">(</span><span class="n">major</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">micro</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">releaselevel</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">serial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tool-overview.html" class="btn btn-neutral float-right" title="Tool overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Data reader toolbox documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

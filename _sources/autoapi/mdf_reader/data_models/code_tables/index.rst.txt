@@ -1,0 +1,110 @@
+:mod:`mdf_reader.data_models.code_tables`
+=========================================
+
+.. py:module:: mdf_reader.data_models.code_tables
+
+.. autoapi-nested-parse::
+
+   This module has functions to manage data model
+   code table files and objects according to the
+   requirements of the data reader tool
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.data_models.code_tables.read_table
+   mdf_reader.data_models.code_tables.templates
+   mdf_reader.data_models.code_tables.copy_template
+   mdf_reader.data_models.code_tables.expand_integer_range_key
+   mdf_reader.data_models.code_tables.eval_dict_items
+   mdf_reader.data_models.code_tables.table_keys
+   mdf_reader.data_models.code_tables.get_nested
+   mdf_reader.data_models.code_tables.table_value_from_keys
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.data_models.code_tables.toolPath
+   mdf_reader.data_models.code_tables.table_lib
+   mdf_reader.data_models.code_tables.templates_path
+
+
+.. data:: toolPath
+   
+
+   
+
+.. data:: table_lib
+   
+
+   
+
+.. data:: templates_path
+   
+
+   
+
+.. function:: read_table(table_path)
+
+   Reads a data model code table file to a dictionary.
+   It completes the code table to the full complexity
+   the data reader expects, by appending information
+   on secondary keys and expanding range keys.
+
+   :param table_path: The file path of the code table.
+   :type table_path: str
+
+   :returns: Code table
+   :rtype: dict
+
+
+.. function:: templates()
+
+   Lists the name of the available code table templates
+
+   :returns: Code table template aliases
+   :rtype: list
+
+
+.. function:: copy_template(table, out_dir=None, out_path=None)
+
+   Copies a code table template to an output
+   file or path
+
+   :param table: Code table template name to copy
+   :type table: str
+
+   :keyword out_dir: Directory to copy code table file template to
+   :kwtype out_dir: dict, opt
+   :keyword out_path: Full filename to copy code table file template to
+   :kwtype out_path: dict, opt
+   :keyword Either out_dir or out_path must be provided:
+
+
+.. function:: expand_integer_range_key(d)
+
+
+.. function:: eval_dict_items(item)
+
+
+.. function:: table_keys(table)
+
+
+.. function:: get_nested(table, *args)
+
+
+.. function:: table_value_from_keys(table, df)
+
+

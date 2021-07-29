@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.reader.get_sections &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../mdf_reader.html">mdf_reader</a> &raquo;</li>
+        
+      <li>mdf_reader.reader.get_sections</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mdf_reader.reader.get_sections</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#&quot;&quot;&quot;</span>
+<span class="c1">#Created on Tue Apr 30 09:38:17 2019</span>
+<span class="c1">#</span>
+<span class="c1">#Splits string reports in sections using a data model layout.</span>
+<span class="c1">#</span>
+<span class="c1">#Input and output are simple pandas dataframes, with the output dataframe</span>
+<span class="c1">#column names being the section names</span>
+<span class="c1">#</span>
+<span class="c1">#To work with a pandas TextParser, loop through this module.</span>
+<span class="c1">#</span>
+<span class="c1">#Internally works assuming highest complexity in the input data model:</span>
+<span class="c1">#multiple non sequential sections</span>
+<span class="c1">#</span>
+<span class="c1">#DEV NOTES:</span>
+<span class="c1">#    </span>
+<span class="c1">#1) make sure we use Series when working with Series, DataFrames otherwise...</span>
+<span class="c1">#like now:</span>
+<span class="c1">#  threads[thread_id][&#39;data&#39;] = pd.Series(threads[thread_id][&#39;parent_data&#39;][0].str[0:section_len])</span>
+<span class="c1">#instead of:</span>
+<span class="c1">#  threads[thread_id][&#39;data&#39;] = pd.DataFrame(threads[thread_id][&#39;parent_data&#39;][0].str[0:section_len])</span>
+<span class="c1">#</span>
+<span class="c1">#on data import in import_data.py, we use pd.read_fwf because is more general</span>
+<span class="c1">#use, also support to chunking would make converting to series a bit dirty...</span>
+<span class="c1">#</span>
+<span class="c1">#2) Can we extend (do we need to?) this to reading sequential sections with</span>
+<span class="c1">#    no sentinals? apparently (see td11) we are already able to do that:</span>
+<span class="c1">#        provided the section is in a sequential parsing_order group</span>
+<span class="c1">#</span>
+<span class="c1">#@author: iregon</span>
+<span class="c1">#</span>
+<span class="c1">#Have to documents the threads approach!!!!</span>
+<span class="c1">#</span>
+<span class="c1">#&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1">#   ---------------------------------------------------------------------------</span>
+<span class="c1">#   FUNCTIONS TO PERFORM INITIAL SEPARATION OF SECTIONS: MAIN IS GET_SECTIONS()</span>
+<span class="c1">#   ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="extract_data"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.extract_data">[docs]</a><span class="k">def</span> <span class="nf">extract_data</span><span class="p">():</span>
+    <span class="n">section_len</span> <span class="o">=</span> <span class="n">section_lens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;section&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">section_len</span><span class="p">:</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">section_len</span><span class="p">])</span> <span class="c1"># object consistency needed here</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="n">section_len</span><span class="p">:])</span> <span class="c1"># object consistency needed here</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:])</span> <span class="c1">#threads[thread_id][&#39;parent_data&#39;].copy()</span>
+        <span class="c1"># Could even be like with section_len (None in section_len will read to the end)</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Just for consistency</span>
+    <span class="k">del</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="add_next_children"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_next_children">[docs]</a><span class="k">def</span> <span class="nf">add_next_children</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">children_parsing_order</span><span class="p">,</span> <span class="n">branch_parsing_order</span><span class="p">,</span> <span class="n">children_group_type</span><span class="p">,</span> <span class="n">children_group_number</span>
+    <span class="n">children_parsing_order</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">])</span>
+    <span class="n">branch_parsing_order</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">])</span>
+    <span class="n">children_group_type</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">children_group_number</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_group_number&#39;</span><span class="p">]</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">add_children</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="add_higher_group_children"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_higher_group_children">[docs]</a><span class="k">def</span> <span class="nf">add_higher_group_children</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">children_parsing_order</span><span class="p">,</span> <span class="n">branch_parsing_order</span><span class="p">,</span> <span class="n">children_group_type</span><span class="p">,</span> <span class="n">children_group_number</span>
+    <span class="n">children_parsing_order</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">])</span>
+    <span class="n">children_parsing_order</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Move to next group of sections</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">branch_parsing_order</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">])</span>
+        <span class="n">branch_parsing_order</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">children_group_type</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">children_group_number</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_group_number&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">add_children</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="add_children"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_children">[docs]</a><span class="k">def</span> <span class="nf">add_children</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">children_group_type</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+        <span class="n">add_static_children</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">add_dynamic_children</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="add_static_children"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_static_children">[docs]</a><span class="k">def</span> <span class="nf">add_static_children</span><span class="p">():</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_no&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">children_thread_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">children_group_number</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">thread_id</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">children_thread_id</span><span class="p">)</span>
+    <span class="c1"># Now build children&#39;s thread</span>
+    <span class="n">children_section</span> <span class="o">=</span> <span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">grandchildren_group_number</span> <span class="o">=</span> <span class="n">children_group_number</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">children_parsing_order</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">grandchildren_group_number</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">grandchildren_group_number</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">:</span><span class="n">children_parsing_order</span><span class="p">}</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_group_number</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;group_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_group_type</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;section&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_section</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Remove reports from modulo</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;children_group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grandchildren_group_number</span></div>
+
+<div class="viewcode-block" id="add_dynamic_children"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_dynamic_children">[docs]</a><span class="k">def</span> <span class="nf">add_dynamic_children</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">])):</span>
+        <span class="n">branch_i_parsing_order</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">branch_parsing_order</span><span class="p">)</span>
+        <span class="n">children_thread_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">children_group_number</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">thread_id</span>
+        <span class="c1"># Now build children&#39;s thread</span>
+        <span class="n">children_section</span> <span class="o">=</span> <span class="n">children_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">children_idx</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">sentinals_lens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">children_section</span><span class="p">)]</span> <span class="o">==</span> <span class="n">sentinals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">children_section</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">children_thread_id</span><span class="p">)</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_no&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">branch_i_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">children_section</span><span class="p">)</span>
+        <span class="n">grandchildren_group_number</span> <span class="o">=</span> <span class="n">children_group_number</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">branch_i_parsing_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">children_group_type</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">children_group_type</span> <span class="o">==</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span>
+            <span class="n">branch_i_parsing_order</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children_parsing_order</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">grandchildren_group_number</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">grandchildren_group_number</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">:</span><span class="n">branch_i_parsing_order</span><span class="p">}</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_group_number</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;group_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_group_type</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;section&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">children_section</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">children_idx</span><span class="p">]</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">children_idx</span><span class="p">,</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">threads</span><span class="p">[</span><span class="n">children_thread_id</span><span class="p">][</span><span class="s1">&#39;children_group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grandchildren_group_number</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">add_higher_group_children</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="extract_sections"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.extract_sections">[docs]</a><span class="k">def</span> <span class="nf">extract_sections</span><span class="p">(</span><span class="n">string_df</span><span class="p">):</span>
+    <span class="c1"># threads elements:</span>
+    <span class="c1">#    &#39;parsing_order&#39;            What needs to be applied to current parent data</span>
+    <span class="c1">#    &#39;group_number&#39;             Order in the global parsing order</span>
+    <span class="c1">#    &#39;group_type&#39;               Is it sequential, exclusive or optional</span>
+    <span class="c1">#    &#39;section&#39;                  Section name to be extracted from parent_data to data</span>
+    <span class="c1">#    &#39;parent_data&#39;              Inital data from which section must be extracted</span>
+    <span class="c1">#    &#39;data&#39;                     Section data extracted from parent_data</span>
+    <span class="c1">#    &#39;modulo&#39;                   Reminder of parent_data after extracting section (data)</span>
+    <span class="c1">#    &#39;children_no&#39;              Number of children threads to build, based on next parsing order list element. Resets to number of active children</span>
+    <span class="c1">#    &#39;children&#39;                 Thread id for every child</span>
+    <span class="c1">#    &#39;children_group_number&#39;    Group number (in the global parsing order, of the children)</span>
+    <span class="k">global</span> <span class="n">sentinals</span><span class="p">,</span> <span class="n">section_lens</span><span class="p">,</span> <span class="n">sentinal_lens</span><span class="p">,</span> <span class="n">parsing_order</span>
+    <span class="k">global</span> <span class="n">children_group_type</span>
+    <span class="k">global</span> <span class="n">threads</span>
+    <span class="k">global</span> <span class="n">thread_id</span>
+    <span class="k">global</span> <span class="n">group_type</span>
+
+    <span class="c1"># Initial &quot;node&#39;: input data</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">thread_id</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span>
+    <span class="n">threads_queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">:</span><span class="n">parsing_order</span><span class="p">}</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;group_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;section&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">string_df</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span>
+    <span class="k">del</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parent_data&#39;</span><span class="p">]</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children_group_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">add_next_children</span><span class="p">()</span>
+    <span class="n">threads_queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children&#39;</span><span class="p">])</span>
+    <span class="n">threads_queue</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">thread_id</span><span class="p">)</span>
+    <span class="c1"># And now, once initialized, let it grow:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing section partitioning threads&#39;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">threads_queue</span><span class="p">:</span>
+        <span class="n">thread_id</span> <span class="o">=</span> <span class="n">threads_queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> ...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thread_id</span><span class="p">))</span>
+        <span class="n">group_type</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;group_type&#39;</span><span class="p">]</span>
+        <span class="c1"># get section data</span>
+        <span class="n">extract_data</span><span class="p">()</span>
+        <span class="c1"># kill thread if nothing there</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> deleted: no data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thread_id</span><span class="p">))</span>
+            <span class="n">threads_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="c1"># build children threads</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;modulo&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">add_next_children</span><span class="p">()</span>
+            <span class="n">threads_queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;children&#39;</span><span class="p">])</span>
+            <span class="c1">#del threads[thread_id][&#39;modulo&#39;] # not until we control what to do whit leftovers....</span>
+        <span class="n">threads_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
+    <span class="n">section_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">section_groups</span> <span class="o">=</span> <span class="p">[</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">parsing_order</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">]</span>
+    <span class="n">sections</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">section_groups</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+        <span class="n">section_dict</span><span class="p">[</span><span class="n">section</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
+        <span class="n">thread_ids</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">threads</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">threads</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="s1">&#39;section&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">section</span> <span class="p">]</span>
+        <span class="k">for</span> <span class="n">thread_id</span> <span class="ow">in</span> <span class="n">thread_ids</span><span class="p">:</span>
+            <span class="n">section_dict</span><span class="p">[</span><span class="n">section</span><span class="p">]</span> <span class="o">=</span> <span class="n">section_dict</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">threads</span><span class="p">[</span><span class="n">thread_id</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">section_dict</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">section_dict</span></div>
+
+<span class="c1">#   ---------------------------------------------------------------------------</span>
+<span class="c1">#   MAIN</span>
+<span class="c1">#   ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">string_df</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">read_sections</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Returns a pandas dataframe with a report per row</span>
+<span class="sd">    and the report sections split along the columns.</span>
+<span class="sd">    Each section is a block string and only the sections</span>
+<span class="sd">    listed in read_sections parameter are output.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    string_df : pandas.DataFrame</span>
+<span class="sd">        Pandas dataframe with a unique column with</span>
+<span class="sd">        the reports as a block string</span>
+<span class="sd">        </span>
+<span class="sd">    schema : dict </span>
+<span class="sd">        Data source data model schema </span>
+<span class="sd">    </span>
+<span class="sd">    read_sections : list </span>
+<span class="sd">        Sections to output from the complete report</span>
+<span class="sd">        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame </span>
+<span class="sd">        Dataframe with the report sections split </span>
+<span class="sd">        along the columns.</span>
+<span class="sd">    </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">sentinals</span><span class="p">,</span> <span class="n">section_lens</span><span class="p">,</span> <span class="n">sentinals_lens</span>
+    <span class="k">global</span> <span class="n">parsing_order</span>
+    <span class="c1"># Proceed to split sections if more than one</span>
+    <span class="c1"># else return section in a named column</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">section_lens</span> <span class="o">=</span> <span class="p">{</span> <span class="n">section</span><span class="p">:</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">][</span><span class="n">section</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="n">sentinals</span> <span class="o">=</span> <span class="p">{</span> <span class="n">section</span><span class="p">:</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">][</span><span class="n">section</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sentinal&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="n">sentinals_lens</span> <span class="o">=</span> <span class="p">{</span> <span class="n">section</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentinals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">))</span> <span class="k">if</span> <span class="n">sentinals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sentinals</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="n">parsing_order</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">][</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">]</span>
+        <span class="c1"># Get sections separated: section dict has a key:value pair for each</span>
+        <span class="c1"># section in the data model. If the section does not exist in the data,</span>
+        <span class="c1"># the value is an empty pd.Series</span>
+        <span class="n">section_dict</span> <span class="o">=</span> <span class="n">extract_sections</span><span class="p">(</span><span class="n">string_df</span><span class="p">)</span>
+        <span class="c1"># Paste in order (as read_sections) in a single dataframe with columns</span>
+        <span class="c1"># named as sections:</span>
+        <span class="c1"># - Drop unwanted sections</span>
+        <span class="c1"># - Keep requested but non-existent sections</span>
+        <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">read_sections</span><span class="p">:</span>
+            <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_out</span><span class="p">,</span><span class="n">section_dict</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">section</span><span class="p">)],</span><span class="n">sort</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df_out</span> <span class="o">=</span> <span class="n">string_df</span>
+        <span class="n">df_out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">read_sections</span>
+
+    <span class="k">return</span> <span class="n">df_out</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

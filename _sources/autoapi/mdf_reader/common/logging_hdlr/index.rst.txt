@@ -1,0 +1,29 @@
+:mod:`mdf_reader.common.logging_hdlr`
+=====================================
+
+.. py:module:: mdf_reader.common.logging_hdlr
+
+.. autoapi-nested-parse::
+
+   Created on Wed Apr  3 08:45:03 2019
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.logging_hdlr.init_logger
+
+
+
+.. function:: init_logger(module, level='INFO', fn=None)
+
+

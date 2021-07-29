@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tool overview &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started" href="getting-started.html" />
+    <link rel="prev" title="Tool set up" href="tool-set-up.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tool overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tool-overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tool-overview">
+<h1>Tool overview<a class="headerlink" href="#tool-overview" title="Permalink to this headline">¶</a></h1>
+<p>In the tool’s context, a data model is the combination of a <strong>schema file</strong> with information on the file format and its contents and, optionally, the data model contains a set of code tables with <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs, to translate encoded information in some data elements:</p>
+<blockquote>
+<div><p>e.g. Temperature units might be store as numeric values 1 or 2 and this translates to <code class="docutils literal notranslate"><span class="pre">1:Celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">2:Fahrenheit</span></code>.</p>
+</div></blockquote>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="_images/mdf_reader_diagram.svg"><img alt="_images/mdf_reader_diagram.svg" src="_images/mdf_reader_diagram.svg" width="100%" /></a>
+<p class="caption"><span class="caption-text">Simplified workflow of the main function in the tool</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="input-data-imma-files-and-schemas">
+<h2>Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas<a class="headerlink" href="#input-data-imma-files-and-schemas" title="Permalink to this headline">¶</a></h2>
+<p>The tool has been created to read meteorological data from <a class="reference external" href="https://icoads.noaa.gov/r3.html">ICOADS</a> stored in the <code class="docutils literal notranslate"><span class="pre">.imma</span></code> format, please read the <a class="reference external" href="https://icoads.noaa.gov/e-doc/imma/R3.0-imma1.pdf">following guide</a> to know more details regarding the database and the data format.</p>
+<p>Each meteorological report in ICOADS can come from multiple countries, sources and platforms and each report has a source ID (SID) and a deck (DCK) number assigned. “Deck” was originally referred to a punched card deck, but is now used as the primary field to track ICOADS data <strong>collections</strong>. Each deck may contain a single Source ID (SID) or a mixture of SIDs.</p>
+<p>The data stored in the <code class="docutils literal notranslate"><span class="pre">.imma</span></code> format is stored as a fixed width and/or a field delimited file. The mdf_reader reads the data, organise it into sections and validates them against a declared data model (also referred here as <strong>schema</strong>) which can be source ID and deck dependent.</p>
+<p>The <strong>core</strong> meteorological variables stored in the <code class="docutils literal notranslate"><span class="pre">.imma</span></code> format can be read by using the general <code class="docutils literal notranslate"><span class="pre">imma1</span></code> schema included in this tool.</p>
+<p><strong>Supplemental metadata attachments</strong> require a specific <strong>schema</strong> customized to read supplemental metadata from a specific source and deck (“collection”). Several <strong>schemas</strong> are already included in this tool in order to read 18th century ship meteorological metadata.</p>
+<p>All schemas are located under the following directory: <code class="docutils literal notranslate"><span class="pre">~/mdf_reader/data_models/lib/</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each SID-DCK number the data model or schema use to read supplemental metadata will different. e.g. to read metadata from the <a class="reference external" href="https://icoads.noaa.gov/maury.html">US Maury</a> Ship data collection SID 69 and DCK 701, we will use the schema <code class="docutils literal notranslate"><span class="pre">imma_d701</span></code>)</p>
+</div>
+</div>
+<div class="section" id="output">
+<h2>Output:<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>The output of the mdf_reader is a python object with three attributes:</p>
+<ul class="simple">
+<li><p><strong>data</strong>: python <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> with data values.</p></li>
+<li><p><strong>atts</strong>: <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">python dictionary</a> with attributes of each of the output elements inherited from the input data model <strong>schema</strong>.</p></li>
+<li><p><strong>mask</strong>: boolean DF with the results of the validation of each of the data model elements in its columns.</p></li>
+</ul>
+</div>
+<div class="section" id="processing-of-the-data-elements">
+<h2>Processing of the data elements<a class="headerlink" href="#processing-of-the-data-elements" title="Permalink to this headline">¶</a></h2>
+<p>The individual data element definitions in the schema determines how each element is extracted, transformed and validated within the tool. If the data model or schema has its data elements organised in sections, the reader first identifies the string chunks corresponding to the different sections.</p>
+<p>If the data model has no sections, the reader works with the full report as a single chunk.</p>
+<p>Afterwards, data elements are extracted from each of these chunks, as shown in the figure below, where each element in the input dataframe is linked to its attributes (orange text) defined within the data model/schema (e.g. elements encoding type, bytes length, etc).</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="_images/fig1.png"><img alt="_images/fig1.png" src="_images/fig1.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-text">Schematic representation of the integral process of reading, transforming and validating a data element.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="data-elements-extraction-and-transformation">
+<h2>Data elements extraction and transformation<a class="headerlink" href="#data-elements-extraction-and-transformation" title="Permalink to this headline">¶</a></h2>
+<p>The data element extraction and transformation from the initial string to the output dataframe occurs mainly in 3 steps:</p>
+<ol class="arabic">
+<li><p><strong>Elements extraction and missing data tagging</strong>:</p>
+<p>Done using <a class="reference internal" href="autoapi/mdf_reader/reader/import_data/index.html#module-mdf_reader.reader.import_data" title="mdf_reader.reader.import_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">mdf_reader.reader.import_data()</span></code></a>, where individual data elements are extracted as ‘objects’ from the full report string and missing data is recognised as <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> values in the resulting dataframe.</p>
+<p>Strings that are recognised as missing from the source are <cite>pandas</cite> defaults, plus:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Those defined in the data model’s/schema as NaN by making use of the <code class="docutils literal notranslate"><span class="pre">missing_value</span></code> attribute.</p></li>
+<li><p>Those defined as blanks if <code class="docutils literal notranslate"><span class="pre">disable_white_strip</span></code> is set to not <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Unpacking of encoded elements</strong>:</p>
+<p>Data elements with encoding defined in the schema element attributes are decoded and casted to their declared <code class="docutils literal notranslate"><span class="pre">column_type</span></code> <a class="footnote-reference brackets" href="#f1" id="id1">1</a>. Elements where the decoding fails or is not recognised by the tool, are marked as <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> values in the resulting dataframe.</p>
+</li>
+<li><p><strong>Element conversion</strong>:</p></li>
+</ol>
+<blockquote>
+<div><p>Data elements are converted (and optionally transformed) to their final data types (and units) if specified in the data model/schema.</p>
+<dl class="simple">
+<dt><em>Numeric</em> type elements:</dt><dd><ul class="simple">
+<li><p>Safe conversion to numeric; <code class="docutils literal notranslate"><span class="pre">NaN</span></code> where conversion is not possible.</p></li>
+<li><p>There is the option of applying to each element a <em>scale</em> and an <em>offset</em>: <code class="docutils literal notranslate"><span class="pre">offset</span> <span class="pre">+</span> <span class="pre">scale*i</span></code></p></li>
+<li><p>Safe conversion of <code class="docutils literal notranslate"><span class="pre">column_type</span></code></p></li>
+</ul>
+</dd>
+<dt><em>object</em>, <em>string</em> and <em>key</em> type elements:</dt><dd><p>Leading and trailing whitespace stripping unless otherwise declared in <code class="docutils literal notranslate"><span class="pre">disable_white_strip</span></code> (disable all, leading or trailing blank stripping).</p>
+</dd>
+<dt><em>datetime</em> type elements:</dt><dd><p>Safe parsing to datetime objects with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html">pandas.to_datetime()</a>, assigning <cite>NaT</cite> where the conversion is not possible.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="validation-of-elements-against-the-schema-or-data-model">
+<h2>Validation of elements against the schema or data model<a class="headerlink" href="#validation-of-elements-against-the-schema-or-data-model" title="Permalink to this headline">¶</a></h2>
+<p>Data model validation is initiated after each element unpacking and conversion. New <code class="docutils literal notranslate"><span class="pre">Na/NaN</span></code> values in the data (not identified as missing values during extraction) are understood by the tool to have fail unpacking or conversion, and thus, are not validate against the data model. The resulting preliminary validation mask values are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: invalid decoding, conversion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: missing data, rest</p></li>
+</ul>
+</div></blockquote>
+<p>Once elements are in the final form, <em>numeric</em> and <em>key</em> elements are validated against their corresponding attributes in the schema (<code class="docutils literal notranslate"><span class="pre">valid_max|valid_min</span></code> and <code class="docutils literal notranslate"><span class="pre">codetable</span></code>, respectively), with the final values in the validation mask being:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: invalid decoding, conversion, data model values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: missing data, rest</p></li>
+</ul>
+</div></blockquote>
+<p>Overall, the validation process exception handling is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Missing values: <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p>Numeric type elements where either upper|lower bound is missing: <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>key type elements where no codetable is found (or defined in the data model): <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>Rest: <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</div></blockquote>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values are present, and column_type is integer, conversion to column_type will not be possible and data type will be as pandas casting rules (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data casting rules and indexing</a>).</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tool-set-up.html" class="btn btn-neutral float-left" title="Tool set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

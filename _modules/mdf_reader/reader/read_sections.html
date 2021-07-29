@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.reader.read_sections &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../mdf_reader.html">mdf_reader</a> &raquo;</li>
+        
+      <li>mdf_reader.reader.read_sections</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mdf_reader.reader.read_sections</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#&quot;&quot;&quot;</span>
+<span class="c1">#Created on Fri Jan 10 13:17:43 2020</span>
+<span class="c1">#</span>
+<span class="c1">#Extracts and reads (decodes, scales, etc...) the elements of data sections.</span>
+<span class="c1">#Each column of the input dataframe is a section with all its elements stored</span>
+<span class="c1">#as a single string.</span>
+<span class="c1">#</span>
+<span class="c1">#Working on a section by section basis, this module uses the data model</span>
+<span class="c1">#information provided in the schema to split the elements, decode and scale them</span>
+<span class="c1">#where appropriate and ensure its data type consistency.</span>
+<span class="c1">#</span>
+<span class="c1">#Output is a dataframe with columns as follows depending on the data model</span>
+<span class="c1">#structure:</span>
+<span class="c1">#    1) Data model with sections (1 or more): [(section0,element0),.......(sectionN,elementM)]</span>
+<span class="c1">#    2) Data model with no sections[element0...element1]</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#DEV NOTES:</span>
+<span class="c1">#1) the &#39;quoted&#39; issue: in version 1.0:</span>
+<span class="c1"># # Writing options from quoting on to prevent supp buoy data to be quoted:</span>
+<span class="c1"># # maybe this happenned because buoy data has commas, and pandas makes its own decission about</span>
+<span class="c1"># # how to write that.....</span>
+<span class="c1"># #https://stackoverflow.com/questions/21147058/pandas-to-csv-output-quoting-issue</span>
+<span class="c1"># # quoting=csv.QUOTE_NONE was failing when a section is empty (or just one record in a section,...)</span>
+<span class="c1"># sections_df[section].to_csv(section_buffer,header=False, encoding = &#39;utf-8&#39;,index = False,quoting=csv.QUOTE_NONE,escapechar=&quot;\\&quot;,sep=&quot;\t&quot;)</span>
+<span class="c1">#</span>
+<span class="c1"># But we were still experiencing problems when reading fully empty sections, now</span>
+<span class="c1"># we only write to the section buffer reports that are not empty. We afterwards</span>
+<span class="c1"># recover the indexes....</span>
+<span class="c1">#</span>
+<span class="c1">#@author: iregon</span>
+<span class="c1">#&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">properties</span>
+<span class="kn">from</span> <span class="nn">..common.converters</span> <span class="kn">import</span> <span class="n">converters</span>
+<span class="kn">from</span> <span class="nn">..common.decoders</span> <span class="kn">import</span> <span class="n">decoders</span>
+
+<div class="viewcode-block" id="extract_fixed_width"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.extract_fixed_width">[docs]</a><span class="k">def</span> <span class="nf">extract_fixed_width</span><span class="p">(</span><span class="n">section_serie_bf</span><span class="p">,</span><span class="n">section_schema</span><span class="p">):</span>
+    <span class="c1"># Read section elements descriptors</span>
+    <span class="n">section_names</span> <span class="o">=</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">section_widths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="n">properties</span><span class="o">.</span><span class="n">MAX_FULL_REPORT_WIDTH</span><span class="p">,</span> <span class="p">[</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;field_length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">section_names</span> <span class="p">]))</span>
+    <span class="n">section_missing</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;missing_value&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;disable_white_strip&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+                               <span class="k">else</span> <span class="p">[</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;missing_value&#39;</span><span class="p">),</span><span class="s2">&quot; &quot;</span><span class="o">*</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;field_length&#39;</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">MAX_FULL_REPORT_WIDTH</span><span class="p">)]</span>
+                               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">section_names</span> <span class="p">}</span>
+    <span class="n">section_elements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="n">section_serie_bf</span><span class="p">,</span> <span class="n">widths</span> <span class="o">=</span> <span class="n">section_widths</span><span class="p">,</span>
+                                   <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">section_names</span> <span class="p">,</span> 
+                                   <span class="n">na_values</span> <span class="o">=</span> <span class="n">section_missing</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> 
+                                   <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">skip_blank_lines</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                   <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">escapechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">section_elements</span></div>
+
+<div class="viewcode-block" id="extract_delimited"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.extract_delimited">[docs]</a><span class="k">def</span> <span class="nf">extract_delimited</span><span class="p">(</span><span class="n">section_serie_bf</span><span class="p">,</span><span class="n">section_schema</span><span class="p">):</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delimiter&#39;</span><span class="p">)</span>
+    <span class="n">section_names</span> <span class="o">=</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">section_missing</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;missing_value&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">section_names</span> <span class="p">}</span>
+    <span class="n">section_elements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">section_serie_bf</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">delimiter</span><span class="p">,</span> 
+                                   <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> 
+                                   <span class="n">skip_blank_lines</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">section_names</span><span class="p">,</span> 
+                                   <span class="n">na_values</span> <span class="o">=</span> <span class="n">section_missing</span><span class="p">,</span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">escapechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">section_elements</span></div>
+
+<div class="viewcode-block" id="read_data"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.read_data">[docs]</a><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">section_df</span><span class="p">,</span><span class="n">section_schema</span><span class="p">):</span>
+    <span class="n">section_names</span> <span class="o">=</span> <span class="n">section_df</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">section_dtypes</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;column_type&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">section_names</span> <span class="p">}</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">section_names</span> <span class="k">if</span> <span class="s1">&#39;encoding&#39;</span> <span class="ow">in</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">x</span><span class="p">]]</span>
+    <span class="n">section_encoding</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;encoding&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">encoded</span> <span class="p">}</span>
+    <span class="n">section_valid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">section_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">section_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">section_dtypes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">encoded</span><span class="p">:</span>
+            <span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">decoders</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_encoding</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">))(</span><span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">])</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span> <span class="n">converter_arg</span><span class="p">:</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">element</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">converter_arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">converter_arg</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">data_type_conversion_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>  <span class="p">}</span>
+        <span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">converters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">))(</span><span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+
+        <span class="n">section_valid</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">missing</span> <span class="o">|</span> <span class="n">section_df</span><span class="p">[</span><span class="n">element</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">section_df</span><span class="p">,</span><span class="n">section_valid</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">sections_df</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Returns a pandas dataframe with a report per row</span>
+<span class="sd">    and the report sections split along the columns.</span>
+<span class="sd">    Each section is a block string and only the sections</span>
+<span class="sd">    listed in read_sections parameter are output.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sections_df : pandas.DataFrame</span>
+<span class="sd">        Pandas dataframe with a column per report sections.</span>
+<span class="sd">        The sections in the columns as a block strings.    </span>
+<span class="sd">    schema : dict </span>
+<span class="sd">        Data source data model schema </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data : pandas.DataFrame </span>
+<span class="sd">        Dataframe with the report section elements split </span>
+<span class="sd">        along the columns. Multiindex if bla, regular index</span>
+<span class="sd">        if ble</span>
+<span class="sd">    mask : pandas.DataFrame </span>
+<span class="sd">        Dataframe with the report section elements split </span>
+<span class="sd">        along the columns. Multiindex if bla, regular index</span>
+<span class="sd">        if ble   </span>
+<span class="sd">    dtypes : dict</span>
+<span class="sd">        Dictionary with pandas data types for each of the</span>
+<span class="sd">        output elements</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">multiindex</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sections_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">sections_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">properties</span><span class="o">.</span><span class="n">dummy_level</span> <span class="k">else</span> <span class="kc">False</span>
+    <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">sections_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">valid_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">sections_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">out_dtypes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reading section </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">section</span><span class="p">))</span>
+        <span class="n">section_schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+        <span class="n">disable_read</span> <span class="o">=</span> <span class="n">section_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;header&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;disable_read&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">disable_read</span><span class="p">:</span>
+            <span class="n">field_layout</span> <span class="o">=</span> <span class="n">section_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;header&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;field_layout&#39;</span><span class="p">)</span>
+            <span class="n">ignore</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># evals to True if set and true, evals to False if not set or set and false</span>
+             <span class="c1"># Get rid of false delimiters in fixed_width</span>
+            <span class="n">delimiter</span> <span class="o">=</span> <span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delimiter&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">delimiter</span> <span class="ow">and</span> <span class="n">field_layout</span> <span class="o">==</span> <span class="s1">&#39;fixed_width&#39;</span><span class="p">:</span>
+                <span class="n">sections_df</span><span class="p">[</span><span class="n">section</span><span class="p">]</span> <span class="o">=</span> <span class="n">sections_df</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+            <span class="n">section_buffer</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+            <span class="c1"># Here indices are lost, have to give the real ones, those in section_strings:</span>
+            <span class="c1"># we&#39;ll see if we do that in the caller module or here....</span>
+            <span class="c1"># Only pass records with data to avoid the hassle of dealing with</span>
+            <span class="c1"># how the NaN rows are written and then read!</span>
+            <span class="n">notna_idx</span> <span class="o">=</span> <span class="n">sections_df</span><span class="p">[</span><span class="n">sections_df</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span>
+            <span class="n">sections_df</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">notna_idx</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">section_buffer</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">,</span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">escapechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">internal_delimiter</span><span class="p">)</span>
+            <span class="n">ssshh</span> <span class="o">=</span> <span class="n">section_buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="c1"># Get the individual elements as objects</span>
+            <span class="k">if</span> <span class="n">field_layout</span> <span class="o">==</span> <span class="s1">&#39;fixed_width&#39;</span><span class="p">:</span>
+                <span class="n">section_elements_obj</span> <span class="o">=</span> <span class="n">extract_fixed_width</span><span class="p">(</span><span class="n">section_buffer</span><span class="p">,</span><span class="n">section_schema</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">field_layout</span> <span class="o">==</span> <span class="s1">&#39;delimited&#39;</span><span class="p">:</span>
+                <span class="n">section_elements_obj</span> <span class="o">=</span> <span class="n">extract_delimited</span><span class="p">(</span><span class="n">section_buffer</span><span class="p">,</span><span class="n">section_schema</span><span class="p">)</span>
+
+            <span class="n">section_elements_obj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># Read the objects to their data types and apply decoding, scaling and so on...</span>
+            <span class="c1"># Give them their actual indexes back</span>
+            <span class="n">section_elements</span><span class="p">,</span> <span class="n">section_valid</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">section_elements_obj</span><span class="p">,</span><span class="n">section_schema</span><span class="p">)</span>
+             
+            <span class="n">section_elements</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">notna_idx</span>
+            <span class="n">section_valid</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">notna_idx</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">section_elements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sections_df</span><span class="p">[</span><span class="n">section</span><span class="p">],</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">section</span><span class="p">])</span>
+            <span class="n">section_valid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">section_elements</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">section</span><span class="p">])</span>
+
+
+        <span class="n">section_elements</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">section_elements</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="k">if</span> <span class="n">multiindex</span> <span class="k">else</span> <span class="n">section_elements</span><span class="o">.</span><span class="n">columns</span>
+        <span class="n">section_valid</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">section_elements</span><span class="o">.</span><span class="n">columns</span>
+        <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_df</span><span class="p">,</span><span class="n">section_elements</span><span class="p">],</span><span class="n">sort</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">valid_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">valid_df</span><span class="p">,</span><span class="n">section_valid</span><span class="p">],</span><span class="n">sort</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Do the dtypes after removing unwnated elements, etc..</span>
+    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">section_schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">section_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;header&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;disable_read&#39;</span><span class="p">):</span>
+            <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">section</span> <span class="p">]</span>
+            <span class="k">if</span> <span class="n">multiindex</span><span class="p">:</span>
+                <span class="n">out_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="p">(</span><span class="n">section</span><span class="p">,</span><span class="n">i</span><span class="p">):</span><span class="n">properties</span><span class="o">.</span><span class="n">pandas_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;column_type&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">elements</span> <span class="p">}</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">i</span><span class="p">:</span><span class="n">properties</span><span class="o">.</span><span class="n">pandas_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_schema</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;column_type&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">elements</span> <span class="p">}</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">multiindex</span><span class="p">:</span>
+                    <span class="n">out_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="p">(</span><span class="n">section</span><span class="p">,</span><span class="n">section</span><span class="p">):</span><span class="s1">&#39;object&#39;</span> <span class="p">}</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">section</span><span class="p">:</span><span class="s1">&#39;object&#39;</span> <span class="p">}</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_df</span><span class="p">,</span> <span class="n">valid_df</span><span class="p">,</span> <span class="n">out_dtypes</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

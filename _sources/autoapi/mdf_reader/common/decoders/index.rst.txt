@@ -1,0 +1,53 @@
+:mod:`mdf_reader.common.decoders`
+=================================
+
+.. py:module:: mdf_reader.common.decoders
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.decoders.df_decoders
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.decoders.signed_overpunch_i
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.decoders.decoders
+
+
+.. function:: signed_overpunch_i(x)
+
+
+.. class:: df_decoders(dtype)
+
+
+   .. method:: signed_overpunch(self, data)
+
+
+   .. method:: base36(self, data)
+
+
+
+.. data:: decoders
+   
+
+   
+

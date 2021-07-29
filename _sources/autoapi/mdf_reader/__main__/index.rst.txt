@@ -1,0 +1,14 @@
+:mod:`mdf_reader.__main__`
+==========================
+
+.. py:module:: mdf_reader.__main__
+
+
+Module Contents
+---------------
+
+.. data:: kwargs
+   
+
+   
+

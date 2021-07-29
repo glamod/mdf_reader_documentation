@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.properties &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/autoapi/mdf_reader/properties/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-mdf_reader.properties">
+<span id="mdf-reader-properties"></span><h1><a class="reference internal" href="#module-mdf_reader.properties" title="mdf_reader.properties"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a><a class="headerlink" href="#module-mdf_reader.properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="mdf_reader.properties.schema_path">
+<code class="sig-name descname"><span class="pre">schema_path</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#schema_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.schema_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.supported_data_models">
+<code class="sig-name descname"><span class="pre">supported_data_models</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#supported_data_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.supported_data_models" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.numpy_integers">
+<code class="sig-name descname"><span class="pre">numpy_integers</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['int8',</span> <span class="pre">'int16',</span> <span class="pre">'int32',</span> <span class="pre">'int64',</span> <span class="pre">'uint8',</span> <span class="pre">'uint16',</span> <span class="pre">'uint32',</span> <span class="pre">'uint64']</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#numpy_integers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.numpy_integers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.numpy_floats">
+<code class="sig-name descname"><span class="pre">numpy_floats</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['float16',</span> <span class="pre">'float32',</span> <span class="pre">'float64']</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#numpy_floats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.numpy_floats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.pandas_nan_integers">
+<code class="sig-name descname"><span class="pre">pandas_nan_integers</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#pandas_nan_integers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.pandas_nan_integers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.numeric_types">
+<code class="sig-name descname"><span class="pre">numeric_types</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#numeric_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.numeric_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.object_types">
+<code class="sig-name descname"><span class="pre">object_types</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['str',</span> <span class="pre">'object',</span> <span class="pre">'key',</span> <span class="pre">'datetime']</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#object_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.data_types">
+<code class="sig-name descname"><span class="pre">data_types</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#data_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.data_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.pandas_dtypes">
+<code class="sig-name descname"><span class="pre">pandas_dtypes</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#pandas_dtypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.pandas_dtypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.data_type_conversion_args">
+<code class="sig-name descname"><span class="pre">data_type_conversion_args</span></code><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#data_type_conversion_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.data_type_conversion_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.tol">
+<code class="sig-name descname"><span class="pre">tol</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1e-10</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#tol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.tol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.dummy_level">
+<code class="sig-name descname"><span class="pre">dummy_level</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_SECTION_</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#dummy_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.dummy_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.MAX_FULL_REPORT_WIDTH">
+<code class="sig-name descname"><span class="pre">MAX_FULL_REPORT_WIDTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">100000</span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#MAX_FULL_REPORT_WIDTH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.MAX_FULL_REPORT_WIDTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.properties.internal_delimiter">
+<code class="sig-name descname"><span class="pre">internal_delimiter</span></code><em class="property"> <span class="pre">=</span> <span class="pre"></span></em><a class="reference internal" href="../../../_modules/mdf_reader/properties.html#internal_delimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.properties.internal_delimiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

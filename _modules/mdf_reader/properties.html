@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.properties &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../mdf_reader.html">mdf_reader</a> &raquo;</li>
+        
+      <li>mdf_reader.properties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mdf_reader.properties</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="c1"># Supported formats, sources and internal data models -------------------------</span>
+<div class="viewcode-block" id="schema_path"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.schema_path">[docs]</a><span class="n">schema_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span><span class="s1">&#39;data_models&#39;</span><span class="p">,</span><span class="s1">&#39;lib&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="supported_data_models"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.supported_data_models">[docs]</a><span class="n">supported_data_models</span> <span class="o">=</span> <span class="p">[</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">schema_path</span> <span class="o">+</span> <span class="s1">&#39;/*/*.json&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span></div>
+
+<span class="c1"># Data types ------------------------------------------------------------------</span>
+<div class="viewcode-block" id="numpy_integers"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numpy_integers">[docs]</a><span class="n">numpy_integers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int8&#39;</span><span class="p">,</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span><span class="s1">&#39;int32&#39;</span><span class="p">,</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span><span class="s1">&#39;uint8&#39;</span><span class="p">,</span><span class="s1">&#39;uint16&#39;</span><span class="p">,</span><span class="s1">&#39;uint32&#39;</span><span class="p">,</span><span class="s1">&#39;uint64&#39;</span><span class="p">]</span></div>
+<div class="viewcode-block" id="numpy_floats"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numpy_floats">[docs]</a><span class="n">numpy_floats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span><span class="s1">&#39;float64&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="pandas_nan_integers"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.pandas_nan_integers">[docs]</a><span class="n">pandas_nan_integers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;int8&#39;</span><span class="p">:</span><span class="s1">&#39;Int8&#39;</span><span class="p">,</span><span class="s1">&#39;int16&#39;</span><span class="p">:</span><span class="s1">&#39;Int16&#39;</span><span class="p">,</span><span class="s1">&#39;int32&#39;</span><span class="p">:</span><span class="s1">&#39;Int32&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;int64&#39;</span><span class="p">:</span><span class="s1">&#39;Int64&#39;</span><span class="p">,</span><span class="s1">&#39;uint8&#39;</span><span class="p">:</span><span class="s1">&#39;UInt8&#39;</span><span class="p">,</span><span class="s1">&#39;uint16&#39;</span><span class="p">:</span><span class="s1">&#39;UInt16&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;uint32&#39;</span><span class="p">:</span><span class="s1">&#39;UInt32&#39;</span><span class="p">,</span><span class="s1">&#39;uint64&#39;</span><span class="p">:</span><span class="s1">&#39;UInt64&#39;</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="numeric_types"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numeric_types">[docs]</a><span class="n">numeric_types</span> <span class="o">=</span> <span class="n">numpy_integers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+<span class="n">numeric_types</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">numpy_floats</span><span class="p">)</span>
+<span class="n">numeric_types</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">pandas_nan_integers</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<div class="viewcode-block" id="object_types"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.object_types">[docs]</a><span class="n">object_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;str&#39;</span><span class="p">,</span><span class="s1">&#39;object&#39;</span><span class="p">,</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="data_types"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.data_types">[docs]</a><span class="n">data_types</span> <span class="o">=</span> <span class="n">object_types</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+<span class="n">data_types</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">numpy_integers</span><span class="p">)</span>
+<span class="n">data_types</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">numpy_floats</span><span class="p">)</span>
+
+<div class="viewcode-block" id="pandas_dtypes"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.pandas_dtypes">[docs]</a><span class="n">pandas_dtypes</span> <span class="o">=</span> <span class="p">{}</span></div>
+<span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">object_types</span><span class="p">:</span>
+    <span class="n">pandas_dtypes</span><span class="p">[</span><span class="n">dtype</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;object&#39;</span>
+<span class="n">pandas_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numeric_types</span> <span class="p">})</span>
+
+<span class="c1"># ....and how they are managed</span>
+<div class="viewcode-block" id="data_type_conversion_args"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.data_type_conversion_args">[docs]</a><span class="n">data_type_conversion_args</span> <span class="o">=</span> <span class="p">{}</span></div>
+<span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">numeric_types</span><span class="p">:</span>
+    <span class="n">data_type_conversion_args</span><span class="p">[</span><span class="n">dtype</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span><span class="s1">&#39;offset&#39;</span><span class="p">]</span>
+<span class="n">data_type_conversion_args</span><span class="p">[</span><span class="s1">&#39;str&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;disable_white_strip&#39;</span><span class="p">]</span>
+<span class="n">data_type_conversion_args</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;disable_white_strip&#39;</span><span class="p">]</span>
+<span class="n">data_type_conversion_args</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;disable_white_strip&#39;</span><span class="p">]</span>
+<span class="n">data_type_conversion_args</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;datetime_format&#39;</span><span class="p">]</span>
+
+<span class="c1"># Misc ------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="tol"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.tol">[docs]</a><span class="n">tol</span> <span class="o">=</span> <span class="mf">1E-10</span></div>
+<div class="viewcode-block" id="dummy_level"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.dummy_level">[docs]</a><span class="n">dummy_level</span> <span class="o">=</span> <span class="s1">&#39;_SECTION_&#39;</span></div>
+<span class="c1"># Length of reports in initial read</span>
+<div class="viewcode-block" id="MAX_FULL_REPORT_WIDTH"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.MAX_FULL_REPORT_WIDTH">[docs]</a><span class="n">MAX_FULL_REPORT_WIDTH</span> <span class="o">=</span> <span class="mi">100000</span></div>
+<span class="c1"># This is a delimiter internally used when writing to buffers</span>
+<span class="c1"># It is the Unicode Character &#39;END OF TEXT&#39; </span>
+<span class="c1"># It is supposed to be safe because we don;t expect it in a string </span>
+<span class="c1"># It&#39;s UTF-8 encoding lenght is not &gt; 1, so it is supported by pandas &#39;c&#39; </span>
+<span class="c1"># engine, which is faster than the python engine.</span>
+<div class="viewcode-block" id="internal_delimiter"><a class="viewcode-back" href="../../autoapi/mdf_reader/properties/index.html#mdf_reader.properties.internal_delimiter">[docs]</a><span class="n">internal_delimiter</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\u0003</span><span class="s2">&quot;</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

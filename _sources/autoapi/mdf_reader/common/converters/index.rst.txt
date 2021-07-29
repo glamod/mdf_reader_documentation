@@ -1,0 +1,63 @@
+:mod:`mdf_reader.common.converters`
+===================================
+
+.. py:module:: mdf_reader.common.converters
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.converters.df_converters
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.converters.converters
+
+
+.. class:: df_converters(dtype)
+
+
+   .. method:: object_to_numeric(self, data, scale=None, offset=None)
+
+      Converts the object type elements of a pandas series to numeric type.
+      Right spaces are trated as ceros. Scale and offset can optionally be applied.
+      The final data type according to the class dtype.
+
+      :param self: Pandas dataframe with a column per report sections.
+                   The sections in the columns as a block strings.
+      :type self: dtype, numeric_scale and numeric_offset
+      :param data: Series with data to convert. Data must be object type
+      :type data: pandas.Series
+
+      :keyword scale: Scale to apply after conversion to numeric
+      :kwtype scale: numeric, optional
+      :keyword offset: Offset to apply after converion to numeric
+      :kwtype offset: numeric, optional
+
+      :returns: **data** -- Data series of type self.dtype
+      :rtype: pandas.Series
+
+
+   .. method:: object_to_object(self, data, disable_white_strip=False)
+
+
+   .. method:: object_to_datetime(self, data, datetime_format='%Y%m%d')
+
+
+
+.. data:: converters
+   
+
+   
+

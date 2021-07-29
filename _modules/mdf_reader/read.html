@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.read &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../mdf_reader.html">mdf_reader</a> &raquo;</li>
+        
+      <li>mdf_reader.read</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mdf_reader.read</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Manages the integral sequence in data file reading</span>
+<span class="sd">from a data model:</span>
+<span class="sd">    - Access to data model</span>
+<span class="sd">    - Data file import</span>
+<span class="sd">    - Data file reading</span>
+<span class="sd">    - Data validation</span>
+<span class="sd">    - Output</span>
+
+<span class="sd">Contains the following functions:</span>
+<span class="sd">    * ERV - does the actual extraction, read and validation of data input data</span>
+<span class="sd">    * main - the main function of the script</span>
+<span class="sd">    </span>
+<span class="sd">Can be run as a script with:</span>
+<span class="sd">    python -m mdf_reader data_file **kwargs</span>
+<span class="sd">        </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">.data_models</span> <span class="kn">import</span> <span class="n">schemas</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">properties</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">pandas_TextParser_hdlr</span>
+<span class="c1">#from .reader import import_data</span>
+<span class="c1">#from .reader import get_sections</span>
+<span class="kn">from</span> <span class="nn">mdf_reader.reader</span> <span class="kn">import</span> <span class="n">import_data</span><span class="p">,</span> <span class="n">get_sections</span><span class="p">,</span> <span class="n">read_sections</span>
+<span class="kn">from</span> <span class="nn">.validator</span> <span class="kn">import</span> <span class="n">validate</span>
+
+<div class="viewcode-block" id="toolPath"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.toolPath">[docs]</a><span class="n">toolPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span></div>
+<div class="viewcode-block" id="schema_lib"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.schema_lib">[docs]</a><span class="n">schema_lib</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">toolPath</span><span class="p">,</span><span class="s1">&#39;data_models&#39;</span><span class="p">,</span><span class="s1">&#39;lib&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># AUX FUNCTIONS ---------------------------------------------------------------</span>
+<div class="viewcode-block" id="ERV"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.ERV">[docs]</a><span class="k">def</span> <span class="nf">ERV</span><span class="p">(</span><span class="n">TextParser</span><span class="p">,</span><span class="n">read_sections_list</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">code_tables_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Extracts, reads and validates data input data.</span>
+
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    TextParser : list or pandas.io.parsers.TextFileReader</span>
+<span class="sd">        The data to extract and read</span>
+<span class="sd">    read_sections_list : list</span>
+<span class="sd">        List with subset of data model sections to output </span>
+<span class="sd">    schema : dict</span>
+<span class="sd">        Data model schema</span>
+<span class="sd">    code_tables_path : str</span>
+<span class="sd">        Path to data model code tables</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data : pandas.DataFrame, pandas.io.parsers.TextFileReader</span>
+<span class="sd">        Contains the input data extracted and read</span>
+<span class="sd">    valid : pandas.DataFrame, pandas.io.parsers.TextFileReader</span>
+<span class="sd">        Contains the a boolean mask with the data validation output</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">data_buffer</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+    <span class="n">valid_buffer</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i_chunk</span><span class="p">,</span> <span class="n">string_df</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">TextParser</span><span class="p">):</span>
+        
+        <span class="c1"># 1. Get a DF with 1 column per sections:</span>
+        <span class="c1"># - only sections requested, ignore rest</span>
+        <span class="c1"># - requested NA sections as NaN columns</span>
+        <span class="c1"># - columns(sections) order as in read_sections_list</span>
+        
+        <span class="n">sections_df</span> <span class="o">=</span> <span class="n">get_sections</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">string_df</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">read_sections_list</span><span class="p">)</span>
+        <span class="c1"># 2. Read elements from sections</span>
+        <span class="c1"># Along data chunks, resulting data types</span>
+        <span class="c1"># may vary if gaps, keep track of data dtypes: v1.0</span>
+        <span class="c1"># This has now been solved by working with Intxx pandas dtypes (nullable integers) </span>
+        <span class="c1"># Sections are parsed in the same order as sections_df.columns</span>
+        
+        <span class="p">[</span><span class="n">data_df</span><span class="p">,</span> <span class="n">valid_df</span><span class="p">,</span> <span class="n">out_dtypes</span> <span class="p">]</span> <span class="o">=</span> <span class="n">read_sections</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">sections_df</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+        <span class="c1"># 3. Validate data elements</span>
+        
+        <span class="n">valid_df</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">data_df</span><span class="p">,</span> <span class="n">valid_df</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">code_tables_path</span><span class="p">)</span>
+        <span class="c1"># 4. Save to buffer        </span>
+        <span class="c1"># Writing options from quoting on to prevent data with special characters, like commas, etc, to be quoted</span>
+        <span class="c1">#https://stackoverflow.com/questions/21147058/pandas-to-csv-output-quoting-issue</span>
+        <span class="n">data_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_buffer</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+                       <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">internal_delimiter</span><span class="p">,</span>
+                       <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">escapechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">valid_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">valid_buffer</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        
+    <span class="c1"># Create the output</span>
+    <span class="c1"># WE&#39;LL NEED TO POSPROCESS THIS WHEN READING MULTIPLE REPORTS PER LINE, IF EVER...</span>
+    <span class="n">data_buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">valid_buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Wrapping output....&quot;</span><span class="p">)</span>
+    <span class="c1"># Chunksize from the imported TextParser if it is a pd.io.parsers.TextFileReader</span>
+    <span class="c1"># (source is either pd.io.parsers.TextFileReader or a file with chunksize specified on input):</span>
+    <span class="c1"># This way it supports direct chunksize property inheritance if the input source was a pd.io.parsers.TextFileReader</span>
+    <span class="n">chunksize</span> <span class="o">=</span> <span class="n">TextParser</span><span class="o">.</span><span class="n">orig_options</span><span class="p">[</span><span class="s1">&#39;chunksize&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">TextParser</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextFileReader</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    
+    <span class="c1"># &#39;datetime&#39; is not a valid pandas dtype: Only on output (on reading) will be then converted (via parse_dates) to datetime64[ns] type,</span>
+    <span class="c1"># cannot specify &#39;datetime&#39; (of any kind) here: would fail, need to change to &#39;object&#39; and tell the date parser where it is</span>
+    <span class="n">date_columns</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Needs to be the numeric index of the column, as seems not to be able to work with tupples....</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">out_dtypes</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">out_dtypes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;datetime&#39;</span><span class="p">:</span>
+            <span class="n">date_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">out_dtypes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">element</span><span class="p">:</span><span class="s1">&#39;object&#39;</span><span class="p">})</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_buffer</span><span class="p">,</span><span class="n">names</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> 
+                       <span class="n">chunksize</span> <span class="o">=</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">out_dtypes</span><span class="p">,</span> 
+                       <span class="n">parse_dates</span> <span class="o">=</span> <span class="n">date_columns</span><span class="p">,</span>
+                       <span class="n">delimiter</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">internal_delimiter</span><span class="p">,</span>
+                       <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">escapechar</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">valid_buffer</span><span class="p">,</span><span class="n">names</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">chunksize</span> <span class="o">=</span> <span class="n">chunksize</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">valid</span></div>
+
+<div class="viewcode-block" id="validate_arg"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.validate_arg">[docs]</a><span class="k">def</span> <span class="nf">validate_arg</span><span class="p">(</span><span class="n">arg_name</span><span class="p">,</span><span class="n">arg_value</span><span class="p">,</span><span class="n">arg_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Validates input argument is as expected type</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arg_name : str</span>
+<span class="sd">    arg_value : arg_type</span>
+<span class="sd">    arg_type : python type</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True,False</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">arg_value</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg_value</span><span class="p">,</span><span class="n">arg_type</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Argument </span><span class="si">{0}</span><span class="s1"> must be </span><span class="si">{1}</span><span class="s1">, input type is </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg_name</span><span class="p">,</span><span class="n">arg_type</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">arg_value</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="validate_path"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.validate_path">[docs]</a><span class="k">def</span> <span class="nf">validate_path</span><span class="p">(</span><span class="n">arg_name</span><span class="p">,</span><span class="n">arg_value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Validates input argument is an existing directory</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arg_name : str</span>
+<span class="sd">    arg_value : str</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True,False</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">arg_value</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">arg_value</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> could not find path </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg_name</span><span class="p">,</span><span class="n">arg_value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<span class="c1"># END AUX FUNCTIONS -----------------------------------------------------------</span>
+        
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../autoapi/mdf_reader/read/index.html#mdf_reader.read.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">data_model</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data_model_path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sections</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">chunksize</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+         <span class="n">skiprows</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out_path</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Reads a data file to a pandas DataFrame using a pre-defined data model.</span>
+<span class="sd">    Read data is validates against its data model producing a boolean mask</span>
+<span class="sd">    on output.</span>
+<span class="sd">    </span>
+<span class="sd">    The data model needs to be input to the module as a named model </span>
+<span class="sd">    (included in the module) or as the path to a valid data model.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    source : str</span>
+<span class="sd">        The file path to read</span>
+<span class="sd">        </span>
+<span class="sd">    Keyword Arguments</span>
+<span class="sd">    -----------------</span>
+<span class="sd">    data_model : str, optional</span>
+<span class="sd">        Name of internally available data model </span>
+<span class="sd">    data_model_path : str, optional</span>
+<span class="sd">        Path to external data model </span>
+<span class="sd">    sections : list, optional</span>
+<span class="sd">        List with subset of data model sections to outpu (default is</span>
+<span class="sd">        all)</span>
+<span class="sd">    chunksize : int, optional</span>
+<span class="sd">        Number of reports per chunk (default is</span>
+<span class="sd">        no chunking)    </span>
+<span class="sd">    skiprows : int, optional</span>
+<span class="sd">        Number of initial rows to skip from file (default is 0)</span>
+<span class="sd">    out_path : str, optional</span>
+<span class="sd">        Path to output data, valid mask and attributes (default is</span>
+<span class="sd">        no output)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : object</span>
+<span class="sd">        Attributes data, mask and atts contain the corresponding</span>
+<span class="sd">        information from the data file.</span>
+<span class="sd">       </span>
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    </span>
+<span class="sd">    This module can also be run as a script, with the keyword arguments</span>
+<span class="sd">    as name_arg=arg</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="s1">[</span><span class="si">%(asctime)s</span><span class="s1">](</span><span class="si">%(filename)s</span><span class="s1">)</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span><span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># 0. VALIDATE INPUT</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data_model</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data_model_path</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;A valid data model name or path to data model must be provided&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Can</span><span class="se">\&#39;</span><span class="s1">t find input data file </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source</span><span class="p">))</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_arg</span><span class="p">(</span><span class="s1">&#39;sections&#39;</span><span class="p">,</span><span class="n">sections</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_arg</span><span class="p">(</span><span class="s1">&#39;chunksize&#39;</span><span class="p">,</span><span class="n">chunksize</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_arg</span><span class="p">(</span><span class="s1">&#39;skiprows&#39;</span><span class="p">,</span><span class="n">skiprows</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_path</span><span class="p">(</span><span class="s1">&#39;data_model_path&#39;</span><span class="p">,</span><span class="n">data_model_path</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_path</span><span class="p">(</span><span class="s1">&#39;out_path&#39;</span><span class="p">,</span><span class="n">out_path</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="c1"># 1. GET DATA MODEL</span>
+    <span class="c1"># Schema reader will return empty if cannot read schema or is not valid</span>
+    <span class="c1"># and will log the corresponding error</span>
+    <span class="c1"># multiple_reports_per_line error also while reading schema</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;READING DATA MODEL SCHEMA FILE...&quot;</span><span class="p">)</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">schemas</span><span class="o">.</span><span class="n">read_schema</span><span class="p">(</span> <span class="n">schema_name</span> <span class="o">=</span> <span class="n">data_model</span><span class="p">,</span> <span class="n">ext_schema_path</span> <span class="o">=</span> <span class="n">data_model_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">schema</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">data_model</span><span class="p">:</span>
+        <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">schema_lib</span><span class="p">,</span><span class="n">data_model</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">model_path</span> <span class="o">=</span> <span class="n">data_model_path</span>
+    <span class="n">code_tables_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="s1">&#39;code_tables&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># 2. READ AND VALIDATE DATA</span>
+    <span class="n">imodel</span> <span class="o">=</span> <span class="n">data_model</span> <span class="k">if</span> <span class="n">data_model</span> <span class="k">else</span> <span class="n">data_model_path</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;EXTRACTING DATA FROM MODEL: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imodel</span><span class="p">))</span>
+
+    <span class="c1"># 2.1. Subset data model sections to requested sections</span>
+    <span class="n">encoding</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;encoding&#39;</span><span class="p">)</span>
+    <span class="n">parsing_order</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parsing_order&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sections</span><span class="p">:</span>
+        <span class="n">sections</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">parsing_order</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span> <span class="p">]</span>
+        <span class="n">read_sections_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sections</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">read_sections_list</span> <span class="o">=</span> <span class="n">sections</span>
+
+    <span class="c1"># 2.2 Homogeneize input data to an iterable with dataframes:</span>
+    <span class="c1"># a list with a single dataframe or a pd.io.parsers.TextFileReader</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting data string from source...&quot;</span><span class="p">)</span>
+    <span class="n">TextParser</span> <span class="o">=</span> <span class="n">import_data</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">chunksize</span> <span class="o">=</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="n">skiprows</span><span class="p">)</span>
+
+    <span class="c1"># 2.3. Extract, read and validate data in same loop</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Extracting and reading sections&quot;</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">,</span><span class="n">valid</span> <span class="o">=</span> <span class="n">ERV</span><span class="p">(</span><span class="n">TextParser</span><span class="p">,</span><span class="n">read_sections_list</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">code_tables_path</span><span class="p">)</span>
+
+    <span class="c1"># 3. CREATE OUTPUT DATA ATTRIBUTES </span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;CREATING OUTPUT DATA ATTRIBUTES FROM DATA MODEL&quot;</span><span class="p">)</span>
+    <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">data</span><span class="o">.</span><span class="n">orig_options</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">]</span>
+    <span class="n">out_atts</span> <span class="o">=</span> <span class="n">schemas</span><span class="o">.</span><span class="n">df_schema</span><span class="p">(</span><span class="n">data_columns</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+    <span class="c1"># 4. OUTPUT TO FILES IF REQUESTED</span>
+    <span class="k">if</span> <span class="n">out_path</span><span class="p">:</span>
+        <span class="n">enlisted</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextFileReader</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">]</span>
+            <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span><span class="n">valid</span><span class="p">]</span>
+            <span class="n">enlisted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;WRITING DATA TO FILES IN: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">out_path</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">data_df</span><span class="p">,</span><span class="n">valid_df</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">valid</span><span class="p">)):</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span>
+                <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data_df</span> <span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nb">tuple</span><span class="p">):</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>
+                    <span class="n">out_atts_json</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">):</span><span class="n">out_atts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out_atts</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">}</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="n">cols</span>
+                    <span class="n">out_atts_json</span> <span class="o">=</span> <span class="n">out_atts</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;header&#39;</span> <span class="p">:</span> <span class="n">header</span><span class="p">,</span> <span class="s1">&#39;mode&#39;</span> <span class="p">:</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">&#39;encoding&#39;</span> <span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="s1">&#39;index&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;index_label&#39;</span> <span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="s1">&#39;quotechar&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;escapechar&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">}</span>
+            <span class="n">data_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span><span class="s1">&#39;data.csv&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">valid_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span><span class="s1">&#39;mask.csv&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">enlisted</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">valid</span> <span class="o">=</span> <span class="n">valid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pandas_TextParser_hdlr</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">f</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">orig_options</span><span class="p">)</span>
+            <span class="n">valid</span> <span class="o">=</span> <span class="n">pandas_TextParser_hdlr</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">f</span><span class="p">,</span><span class="n">valid</span><span class="o">.</span><span class="n">orig_options</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span><span class="s1">&#39;atts.json&#39;</span><span class="p">),</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fileObj</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">out_atts_json</span><span class="p">,</span><span class="n">fileObj</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># 5. RETURN DATA</span>
+    <span class="k">class</span> <span class="nc">output</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot; Class to represent reader output</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : str</span>
+<span class="sd">            a pandas.DataFrame or pandas.io.parsers.TextFileReader</span>
+<span class="sd">            with the output data</span>
+<span class="sd">        atts : dict</span>
+<span class="sd">            a dictionary with the output data elements attributes</span>
+<span class="sd">        mask : str</span>
+<span class="sd">            a pandas.DataFrame or pandas.io.parsers.TextFileReader</span>
+<span class="sd">            with the output data validation mask</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">=</span> <span class="n">out_atts</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">valid</span>
+        
+    
+    <span class="k">return</span> <span class="n">output</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

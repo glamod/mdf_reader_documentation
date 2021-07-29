@@ -1,0 +1,117 @@
+:mod:`mdf_reader.data_models.schemas`
+=====================================
+
+.. py:module:: mdf_reader.data_models.schemas
+
+.. autoapi-nested-parse::
+
+   This module has functions to manage data model
+   schema files and objects according to the
+   requirements of the data reader tool
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.data_models.schemas.read_schema
+   mdf_reader.data_models.schemas.df_schema
+   mdf_reader.data_models.schemas.templates
+   mdf_reader.data_models.schemas.copy_template
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.data_models.schemas.py3
+   mdf_reader.data_models.schemas.toolPath
+   mdf_reader.data_models.schemas.schema_lib
+   mdf_reader.data_models.schemas.templates_path
+
+
+.. data:: py3
+   :annotation: = True
+
+   
+
+.. data:: toolPath
+   
+
+   
+
+.. data:: schema_lib
+   
+
+   
+
+.. data:: templates_path
+   
+
+   
+
+.. function:: read_schema(schema_name=None, ext_schema_path=None)
+
+   Reads a data model schema file to a dictionary and
+   completes it by adding explicitly information the
+   reader tool needs
+
+   :keyword schema_name: The name of data model to read. This is for
+                         data models included in the tool
+   :kwtype schema_name: str, optional
+   :keyword ext_schema_path: The path to the external data model schema file
+   :kwtype ext_schema_path: str, optional
+
+   Either schema_name or ext_schema_path must be provided.
+
+
+   :returns: Data model schema
+   :rtype: dict
+
+
+.. function:: df_schema(df_columns, schema)
+
+   Creates a simple attribute dictionary for the elements
+   in a dataframe from its data model schema
+
+   :param df_columns: The columns in the data frame (data elements from
+                      the data model)
+   :type df_columns: list
+   :param schema: The data model schema
+   :type schema: dict
+
+   :returns: Data elements attributes
+   :rtype: dict
+
+
+.. function:: templates()
+
+   Lists the name of the available schema file templates
+
+   :returns: Schema file templates alias
+   :rtype: list
+
+
+.. function:: copy_template(schema, out_dir=None, out_path=None)
+
+   Copies a schema file template to an output
+   file or path
+
+   :param schema: Schema template name to copy
+   :type schema: str
+
+   :keyword out_dir: Directory to copy schema file template to
+   :kwtype out_dir: dict, opt
+   :keyword out_path: Full filename to copy schema file template to
+   :kwtype out_path: dict, opt
+   :keyword Either out_dir or out_path must be provided:
+
+

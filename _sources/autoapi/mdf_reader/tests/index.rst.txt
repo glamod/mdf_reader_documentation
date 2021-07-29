@@ -1,0 +1,15 @@
+:mod:`mdf_reader.tests`
+=======================
+
+.. py:module:: mdf_reader.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   tests/index.rst
+
+

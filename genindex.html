@@ -1,0 +1,805 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Index &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/mdf_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mdf_reader/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/mdf_reader/index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/index.html#mdf_reader.__version__">__version__ (in module mdf_reader)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_children">add_children() (in module mdf_reader.reader.get_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_dynamic_children">add_dynamic_children() (in module mdf_reader.reader.get_sections)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_higher_group_children">add_higher_group_children() (in module mdf_reader.reader.get_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_next_children">add_next_children() (in module mdf_reader.reader.get_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.add_static_children">add_static_children() (in module mdf_reader.reader.get_sections)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/decoders/index.html#mdf_reader.common.decoders.df_decoders.base36">base36() (df_decoders method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/converters/index.html#mdf_reader.common.converters.converters">converters (in module mdf_reader.common.converters)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.copy_template">copy_template() (in module mdf_reader.data_models.code_tables)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.copy_template">(in module mdf_reader.data_models.schemas)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.data_path">data_path (in module mdf_reader.tests.tests)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.data_type_conversion_args">data_type_conversion_args (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.data_types">data_types (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/decoders/index.html#mdf_reader.common.decoders.decoders">decoders (in module mdf_reader.common.decoders)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/converters/index.html#mdf_reader.common.converters.df_converters">df_converters (class in mdf_reader.common.converters)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/decoders/index.html#mdf_reader.common.decoders.df_decoders">df_decoders (class in mdf_reader.common.decoders)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/functions/index.html#mdf_reader.common.functions.df_prepend_datetime">df_prepend_datetime() (in module mdf_reader.common.functions)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.df_schema">df_schema() (in module mdf_reader.data_models.schemas)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.dummy_level">dummy_level (in module mdf_reader.properties)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.ERV">ERV() (in module mdf_reader.read)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.eval_dict_items">eval_dict_items() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.expand_integer_range_key">expand_integer_range_key() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.extract_data">extract_data() (in module mdf_reader.reader.get_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.extract_delimited">extract_delimited() (in module mdf_reader.reader.read_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.extract_fixed_width">extract_fixed_width() (in module mdf_reader.reader.read_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.extract_sections">extract_sections() (in module mdf_reader.reader.get_sections)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.funPath">funPath (in module mdf_reader.tests.tests)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.get_nested">get_nested() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/logging_hdlr/index.html#mdf_reader.common.logging_hdlr.init_logger">init_logger() (in module mdf_reader.common.logging_hdlr)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.internal_delimiter">internal_delimiter (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/pandas_TextParser_hdlr/index.html#mdf_reader.common.pandas_TextParser_hdlr.is_not_empty">is_not_empty() (in module mdf_reader.common.pandas_TextParser_hdlr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/__main__/index.html#mdf_reader.__main__.kwargs">kwargs (in module mdf_reader.__main__)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/pandas_TextParser_hdlr/index.html#mdf_reader.common.pandas_TextParser_hdlr.logger">logger (in module mdf_reader.common.pandas_TextParser_hdlr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.main">main() (in module mdf_reader.read)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#mdf_reader.reader.get_sections.main">(in module mdf_reader.reader.get_sections)</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/import_data/index.html#mdf_reader.reader.import_data.main">(in module mdf_reader.reader.import_data)</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.main">(in module mdf_reader.reader.read_sections)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.MAX_FULL_REPORT_WIDTH">MAX_FULL_REPORT_WIDTH (in module mdf_reader.properties)</a>
+</li>
+      <li>
+    mdf_reader
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/index.html#module-mdf_reader">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.__main__
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/__main__/index.html#module-mdf_reader.__main__">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/index.html#module-mdf_reader.common">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.converters
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/converters/index.html#module-mdf_reader.common.converters">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.decoders
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/decoders/index.html#module-mdf_reader.common.decoders">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.functions
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/functions/index.html#module-mdf_reader.common.functions">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.logging_hdlr
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/logging_hdlr/index.html#module-mdf_reader.common.logging_hdlr">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.pandas_TextParser_hdlr
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/pandas_TextParser_hdlr/index.html#module-mdf_reader.common.pandas_TextParser_hdlr">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.common.plots
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/common/plots/index.html#module-mdf_reader.common.plots">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.data_models
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/index.html#module-mdf_reader.data_models">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.data_models.code_tables
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#module-mdf_reader.data_models.code_tables">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.data_models.schemas
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#module-mdf_reader.data_models.schemas">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.properties
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/properties/index.html#module-mdf_reader.properties">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.read
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/read/index.html#module-mdf_reader.read">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.reader
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/reader/index.html#module-mdf_reader.reader">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.reader.get_sections
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#module-mdf_reader.reader.get_sections">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    mdf_reader.reader.import_data
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/reader/import_data/index.html#module-mdf_reader.reader.import_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.reader.read_sections
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#module-mdf_reader.reader.read_sections">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.tests
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/tests/index.html#module-mdf_reader.tests">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.tests.tests
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/tests/tests/index.html#module-mdf_reader.tests.tests">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.validator
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/validator/index.html#module-mdf_reader.validator">module</a>
+</li>
+      </ul></li>
+      <li>
+    mdf_reader.validator.validate
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/validator/validate/index.html#module-mdf_reader.validator.validate">module</a>
+</li>
+      </ul></li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/index.html#module-mdf_reader">mdf_reader</a>
+</li>
+        <li><a href="autoapi/mdf_reader/__main__/index.html#module-mdf_reader.__main__">mdf_reader.__main__</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/index.html#module-mdf_reader.common">mdf_reader.common</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/converters/index.html#module-mdf_reader.common.converters">mdf_reader.common.converters</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/decoders/index.html#module-mdf_reader.common.decoders">mdf_reader.common.decoders</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/functions/index.html#module-mdf_reader.common.functions">mdf_reader.common.functions</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/logging_hdlr/index.html#module-mdf_reader.common.logging_hdlr">mdf_reader.common.logging_hdlr</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/pandas_TextParser_hdlr/index.html#module-mdf_reader.common.pandas_TextParser_hdlr">mdf_reader.common.pandas_TextParser_hdlr</a>
+</li>
+        <li><a href="autoapi/mdf_reader/common/plots/index.html#module-mdf_reader.common.plots">mdf_reader.common.plots</a>
+</li>
+        <li><a href="autoapi/mdf_reader/data_models/index.html#module-mdf_reader.data_models">mdf_reader.data_models</a>
+</li>
+        <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#module-mdf_reader.data_models.code_tables">mdf_reader.data_models.code_tables</a>
+</li>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#module-mdf_reader.data_models.schemas">mdf_reader.data_models.schemas</a>
+</li>
+        <li><a href="autoapi/mdf_reader/properties/index.html#module-mdf_reader.properties">mdf_reader.properties</a>
+</li>
+        <li><a href="autoapi/mdf_reader/read/index.html#module-mdf_reader.read">mdf_reader.read</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/index.html#module-mdf_reader.reader">mdf_reader.reader</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/get_sections/index.html#module-mdf_reader.reader.get_sections">mdf_reader.reader.get_sections</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/import_data/index.html#module-mdf_reader.reader.import_data">mdf_reader.reader.import_data</a>
+</li>
+        <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#module-mdf_reader.reader.read_sections">mdf_reader.reader.read_sections</a>
+</li>
+        <li><a href="autoapi/mdf_reader/tests/index.html#module-mdf_reader.tests">mdf_reader.tests</a>
+</li>
+        <li><a href="autoapi/mdf_reader/tests/tests/index.html#module-mdf_reader.tests.tests">mdf_reader.tests.tests</a>
+</li>
+        <li><a href="autoapi/mdf_reader/validator/index.html#module-mdf_reader.validator">mdf_reader.validator</a>
+</li>
+        <li><a href="autoapi/mdf_reader/validator/validate/index.html#module-mdf_reader.validator.validate">mdf_reader.validator.validate</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numeric_types">numeric_types (in module mdf_reader.properties)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numpy_floats">numpy_floats (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.numpy_integers">numpy_integers (in module mdf_reader.properties)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/converters/index.html#mdf_reader.common.converters.df_converters.object_to_datetime">object_to_datetime() (df_converters method)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/converters/index.html#mdf_reader.common.converters.df_converters.object_to_numeric">object_to_numeric() (df_converters method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/converters/index.html#mdf_reader.common.converters.df_converters.object_to_object">object_to_object() (df_converters method)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.object_types">object_types (in module mdf_reader.properties)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.pandas_dtypes">pandas_dtypes (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.pandas_nan_integers">pandas_nan_integers (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/plots/index.html#mdf_reader.common.plots.plot_categorical_validation">plot_categorical_validation() (in module mdf_reader.common.plots)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/common/plots/index.html#mdf_reader.common.plots.plot_model_validation">plot_model_validation() (in module mdf_reader.common.plots)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/plots/index.html#mdf_reader.common.plots.plot_numeric_validation">plot_numeric_validation() (in module mdf_reader.common.plots)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.py3">py3 (in module mdf_reader.data_models.schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/index.html#mdf_reader.read">read() (in module mdf_reader)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/reader/read_sections/index.html#mdf_reader.reader.read_sections.read_data">read_data() (in module mdf_reader.reader.read_sections)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.read_imma1_buoys_nosupp">read_imma1_buoys_nosupp() (in module mdf_reader.tests.tests)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.read_imma1_buoys_nosupp_chunks">read_imma1_buoys_nosupp_chunks() (in module mdf_reader.tests.tests)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.read_imma1_buoys_supp">read_imma1_buoys_supp() (in module mdf_reader.tests.tests)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.read_imma1_buoys_supp_chunks">read_imma1_buoys_supp_chunks() (in module mdf_reader.tests.tests)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.read_schema">read_schema() (in module mdf_reader.data_models.schemas)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.read_table">read_table() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/pandas_TextParser_hdlr/index.html#mdf_reader.common.pandas_TextParser_hdlr.restore">restore() (in module mdf_reader.common.pandas_TextParser_hdlr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.schema_lib">schema_lib (in module mdf_reader.data_models.schemas)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.schema_lib">(in module mdf_reader.read)</a>
+</li>
+        <li><a href="autoapi/mdf_reader/tests/tests/index.html#mdf_reader.tests.tests.schema_lib">(in module mdf_reader.tests.tests)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.schema_path">schema_path (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/decoders/index.html#mdf_reader.common.decoders.df_decoders.signed_overpunch">signed_overpunch() (df_decoders method)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/common/decoders/index.html#mdf_reader.common.decoders.signed_overpunch_i">signed_overpunch_i() (in module mdf_reader.common.decoders)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.supported_data_models">supported_data_models (in module mdf_reader.properties)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.table_keys">table_keys() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.table_lib">table_lib (in module mdf_reader.data_models.code_tables)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.table_value_from_keys">table_value_from_keys() (in module mdf_reader.data_models.code_tables)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.templates">templates() (in module mdf_reader.data_models.code_tables)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.templates">(in module mdf_reader.data_models.schemas)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.templates_path">templates_path (in module mdf_reader.data_models.code_tables)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.templates_path">(in module mdf_reader.data_models.schemas)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/mdf_reader/properties/index.html#mdf_reader.properties.tol">tol (in module mdf_reader.properties)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/data_models/code_tables/index.html#mdf_reader.data_models.code_tables.toolPath">toolPath (in module mdf_reader.data_models.code_tables)</a>
+
+      <ul>
+        <li><a href="autoapi/mdf_reader/data_models/schemas/index.html#mdf_reader.data_models.schemas.toolPath">(in module mdf_reader.data_models.schemas)</a>
+</li>
+        <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.toolPath">(in module mdf_reader.read)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/validator/validate/index.html#mdf_reader.validator.validate.validate">validate() (in module mdf_reader.validator.validate)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.validate_arg">validate_arg() (in module mdf_reader.read)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mdf_reader/validator/validate/index.html#mdf_reader.validator.validate.validate_codes">validate_codes() (in module mdf_reader.validator.validate)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/validator/validate/index.html#mdf_reader.validator.validate.validate_numeric">validate_numeric() (in module mdf_reader.validator.validate)</a>
+</li>
+      <li><a href="autoapi/mdf_reader/read/index.html#mdf_reader.read.validate_path">validate_path() (in module mdf_reader.read)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

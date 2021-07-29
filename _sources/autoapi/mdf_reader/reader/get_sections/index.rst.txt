@@ -1,0 +1,67 @@
+:mod:`mdf_reader.reader.get_sections`
+=====================================
+
+.. py:module:: mdf_reader.reader.get_sections
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.reader.get_sections.extract_data
+   mdf_reader.reader.get_sections.add_next_children
+   mdf_reader.reader.get_sections.add_higher_group_children
+   mdf_reader.reader.get_sections.add_children
+   mdf_reader.reader.get_sections.add_static_children
+   mdf_reader.reader.get_sections.add_dynamic_children
+   mdf_reader.reader.get_sections.extract_sections
+   mdf_reader.reader.get_sections.main
+
+
+
+.. function:: extract_data()
+
+
+.. function:: add_next_children()
+
+
+.. function:: add_higher_group_children()
+
+
+.. function:: add_children()
+
+
+.. function:: add_static_children()
+
+
+.. function:: add_dynamic_children()
+
+
+.. function:: extract_sections(string_df)
+
+
+.. function:: main(string_df, schema, read_sections)
+
+   Returns a pandas dataframe with a report per row
+   and the report sections split along the columns.
+   Each section is a block string and only the sections
+   listed in read_sections parameter are output.
+
+   :param string_df: Pandas dataframe with a unique column with
+                     the reports as a block string
+   :type string_df: pandas.DataFrame
+   :param schema: Data source data model schema
+   :type schema: dict
+   :param read_sections: Sections to output from the complete report
+   :type read_sections: list
+
+   :returns: Dataframe with the report sections split
+             along the columns.
+   :rtype: pandas.DataFrame
+
+

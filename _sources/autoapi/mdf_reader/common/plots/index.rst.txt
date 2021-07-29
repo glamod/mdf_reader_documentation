@@ -1,0 +1,46 @@
+:mod:`mdf_reader.common.plots`
+==============================
+
+.. py:module:: mdf_reader.common.plots
+
+.. autoapi-nested-parse::
+
+   Created on Thu Apr 11 13:45:38 2019
+
+   Look into validation results
+
+   Need to type:
+
+       %matplotlib auto
+
+   if ipython and want to get the interactive plots!
+
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.plots.plot_numeric_validation
+   mdf_reader.common.plots.plot_categorical_validation
+   mdf_reader.common.plots.plot_model_validation
+
+
+
+.. function:: plot_numeric_validation(data, mask, element, valid_max, valid_min, units)
+
+
+.. function:: plot_categorical_validation(data, mask, element, codetable)
+
+
+.. function:: plot_model_validation(imodel)
+
+

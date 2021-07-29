@@ -1,0 +1,17 @@
+:mod:`mdf_reader.reader`
+========================
+
+.. py:module:: mdf_reader.reader
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   get_sections/index.rst
+   import_data/index.rst
+   read_sections/index.rst
+
+

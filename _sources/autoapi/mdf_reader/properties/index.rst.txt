@@ -1,0 +1,79 @@
+:mod:`mdf_reader.properties`
+============================
+
+.. py:module:: mdf_reader.properties
+
+
+Module Contents
+---------------
+
+.. data:: schema_path
+   
+
+   
+
+.. data:: supported_data_models
+   
+
+   
+
+.. data:: numpy_integers
+   :annotation: = ['int8', 'int16', 'int32', 'int64', 'uint8', 'uint16', 'uint32', 'uint64']
+
+   
+
+.. data:: numpy_floats
+   :annotation: = ['float16', 'float32', 'float64']
+
+   
+
+.. data:: pandas_nan_integers
+   
+
+   
+
+.. data:: numeric_types
+   
+
+   
+
+.. data:: object_types
+   :annotation: = ['str', 'object', 'key', 'datetime']
+
+   
+
+.. data:: data_types
+   
+
+   
+
+.. data:: pandas_dtypes
+   
+
+   
+
+.. data:: data_type_conversion_args
+   
+
+   
+
+.. data:: tol
+   :annotation: = 1e-10
+
+   
+
+.. data:: dummy_level
+   :annotation: = _SECTION_
+
+   
+
+.. data:: MAX_FULL_REPORT_WIDTH
+   :annotation: = 100000
+
+   
+
+.. data:: internal_delimiter
+   :annotation: = 
+
+   
+

@@ -1,0 +1,66 @@
+:mod:`mdf_reader.tests.tests`
+=============================
+
+.. py:module:: mdf_reader.tests.tests
+
+.. autoapi-nested-parse::
+
+   Created on Wed Feb 20 08:05:50 2019
+
+   @author: iregon
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.tests.tests.read_imma1_buoys_nosupp
+   mdf_reader.tests.tests.read_imma1_buoys_supp
+   mdf_reader.tests.tests.read_imma1_buoys_nosupp_chunks
+   mdf_reader.tests.tests.read_imma1_buoys_supp_chunks
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.tests.tests.funPath
+   mdf_reader.tests.tests.data_path
+   mdf_reader.tests.tests.schema_lib
+
+
+.. data:: funPath
+   
+
+   
+
+.. data:: data_path
+   
+
+   
+
+.. data:: schema_lib
+   
+
+   
+
+.. function:: read_imma1_buoys_nosupp(plot_validation=False)
+
+
+.. function:: read_imma1_buoys_supp(plot_validation=False)
+
+
+.. function:: read_imma1_buoys_nosupp_chunks()
+
+
+.. function:: read_imma1_buoys_supp_chunks()
+
+

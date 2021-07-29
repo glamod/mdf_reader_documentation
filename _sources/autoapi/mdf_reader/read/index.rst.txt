@@ -1,0 +1,143 @@
+:mod:`mdf_reader.read`
+======================
+
+.. py:module:: mdf_reader.read
+
+.. autoapi-nested-parse::
+
+   Manages the integral sequence in data file reading
+   from a data model:
+       - Access to data model
+       - Data file import
+       - Data file reading
+       - Data validation
+       - Output
+
+   Contains the following functions:
+       * ERV - does the actual extraction, read and validation of data input data
+       * main - the main function of the script
+
+   Can be run as a script with:
+       python -m mdf_reader data_file **kwargs
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.read.ERV
+   mdf_reader.read.validate_arg
+   mdf_reader.read.validate_path
+   mdf_reader.read.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.read.toolPath
+   mdf_reader.read.schema_lib
+
+
+.. data:: toolPath
+   
+
+   
+
+.. data:: schema_lib
+   
+
+   
+
+.. function:: ERV(TextParser, read_sections_list, schema, code_tables_path)
+
+   Extracts, reads and validates data input data.
+
+
+   :param TextParser: The data to extract and read
+   :type TextParser: list or pandas.io.parsers.TextFileReader
+   :param read_sections_list: List with subset of data model sections to output
+   :type read_sections_list: list
+   :param schema: Data model schema
+   :type schema: dict
+   :param code_tables_path: Path to data model code tables
+   :type code_tables_path: str
+
+   :returns: * **data** (*pandas.DataFrame, pandas.io.parsers.TextFileReader*) -- Contains the input data extracted and read
+             * **valid** (*pandas.DataFrame, pandas.io.parsers.TextFileReader*) -- Contains the a boolean mask with the data validation output
+
+
+.. function:: validate_arg(arg_name, arg_value, arg_type)
+
+   Validates input argument is as expected type
+
+   :param arg_name:
+   :type arg_name: str
+   :param arg_value:
+   :type arg_value: arg_type
+   :param arg_type:
+   :type arg_type: python type
+
+   :returns:
+   :rtype: True,False
+
+
+.. function:: validate_path(arg_name, arg_value)
+
+   Validates input argument is an existing directory
+
+   :param arg_name:
+   :type arg_name: str
+   :param arg_value:
+   :type arg_value: str
+
+   :returns:
+   :rtype: True,False
+
+
+.. function:: main(source, data_model=None, data_model_path=None, sections=None, chunksize=None, skiprows=None, out_path=None)
+
+   Reads a data file to a pandas DataFrame using a pre-defined data model.
+   Read data is validates against its data model producing a boolean mask
+   on output.
+
+   The data model needs to be input to the module as a named model
+   (included in the module) or as the path to a valid data model.
+
+   :param source: The file path to read
+   :type source: str
+
+   :keyword data_model: Name of internally available data model
+   :kwtype data_model: str, optional
+   :keyword data_model_path: Path to external data model
+   :kwtype data_model_path: str, optional
+   :keyword sections: List with subset of data model sections to outpu (default is
+                      all)
+   :kwtype sections: list, optional
+   :keyword chunksize: Number of reports per chunk (default is
+                       no chunking)
+   :kwtype chunksize: int, optional
+   :keyword skiprows: Number of initial rows to skip from file (default is 0)
+   :kwtype skiprows: int, optional
+   :keyword out_path: Path to output data, valid mask and attributes (default is
+                      no output)
+   :kwtype out_path: str, optional
+
+   :returns: **output** -- Attributes data, mask and atts contain the corresponding
+             information from the data file.
+   :rtype: object
+
+   .. note::
+
+      This module can also be run as a script, with the keyword arguments
+      as name_arg=arg
+
+

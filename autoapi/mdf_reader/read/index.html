@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.read &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/autoapi/mdf_reader/read/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-mdf_reader.read">
+<span id="mdf-reader-read"></span><h1><a class="reference internal" href="#module-mdf_reader.read" title="mdf_reader.read"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a><a class="headerlink" href="#module-mdf_reader.read" title="Permalink to this headline">¶</a></h1>
+<p>Manages the integral sequence in data file reading
+from a data model:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Access to data model</p></li>
+<li><p>Data file import</p></li>
+<li><p>Data file reading</p></li>
+<li><p>Data validation</p></li>
+<li><p>Output</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Contains the following functions:</dt><dd><ul class="simple">
+<li><p>ERV - does the actual extraction, read and validation of data input data</p></li>
+<li><p>main - the main function of the script</p></li>
+</ul>
+</dd>
+<dt>Can be run as a script with:</dt><dd><p>python -m mdf_reader data_file <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs</p>
+</dd>
+</dl>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.read.ERV" title="mdf_reader.read.ERV"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ERV</span></code></a>(TextParser, read_sections_list, schema, code_tables_path)</p></td>
+<td><p>Extracts, reads and validates data input data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.read.validate_arg" title="mdf_reader.read.validate_arg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arg</span></code></a>(arg_name, arg_value, arg_type)</p></td>
+<td><p>Validates input argument is as expected type</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.read.validate_path" title="mdf_reader.read.validate_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_path</span></code></a>(arg_name, arg_value)</p></td>
+<td><p>Validates input argument is an existing directory</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.read.main" title="mdf_reader.read.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>(source, data_model=None, data_model_path=None, sections=None, chunksize=None, skiprows=None, out_path=None)</p></td>
+<td><p>Reads a data file to a pandas DataFrame using a pre-defined data model.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.read.toolPath" title="mdf_reader.read.toolPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toolPath</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.read.schema_lib" title="mdf_reader.read.schema_lib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">schema_lib</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="mdf_reader.read.toolPath">
+<code class="sig-name descname"><span class="pre">toolPath</span></code><a class="reference internal" href="../../../_modules/mdf_reader/read.html#toolPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.toolPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.read.schema_lib">
+<code class="sig-name descname"><span class="pre">schema_lib</span></code><a class="reference internal" href="../../../_modules/mdf_reader/read.html#schema_lib"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.schema_lib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.read.ERV">
+<code class="sig-name descname"><span class="pre">ERV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TextParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_sections_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code_tables_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mdf_reader/read.html#ERV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.ERV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts, reads and validates data input data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TextParser</strong> (<em>list</em><em> or </em><em>pandas.io.parsers.TextFileReader</em>) – The data to extract and read</p></li>
+<li><p><strong>read_sections_list</strong> (<em>list</em>) – List with subset of data model sections to output</p></li>
+<li><p><strong>schema</strong> (<em>dict</em>) – Data model schema</p></li>
+<li><p><strong>code_tables_path</strong> (<em>str</em>) – Path to data model code tables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame, pandas.io.parsers.TextFileReader</em>) – Contains the input data extracted and read</p></li>
+<li><p><strong>valid</strong> (<em>pandas.DataFrame, pandas.io.parsers.TextFileReader</em>) – Contains the a boolean mask with the data validation output</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.read.validate_arg">
+<code class="sig-name descname"><span class="pre">validate_arg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mdf_reader/read.html#validate_arg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.validate_arg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates input argument is as expected type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>arg_value</strong> (<em>arg_type</em>) – </p></li>
+<li><p><strong>arg_type</strong> (<em>python type</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True,False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.read.validate_path">
+<code class="sig-name descname"><span class="pre">validate_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mdf_reader/read.html#validate_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.validate_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates input argument is an existing directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>arg_value</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True,False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.read.main">
+<code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skiprows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mdf_reader/read.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.read.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a data file to a pandas DataFrame using a pre-defined data model.
+Read data is validates against its data model producing a boolean mask
+on output.</p>
+<p>The data model needs to be input to the module as a named model
+(included in the module) or as the path to a valid data model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>str</em>) – The file path to read</p>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data_model</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of internally available data model</p></li>
+<li><p><strong>data_model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to external data model</p></li>
+<li><p><strong>sections</strong> (<em>list</em><em>, </em><em>optional</em>) – List with subset of data model sections to outpu (default is
+all)</p></li>
+<li><p><strong>chunksize</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of reports per chunk (default is
+no chunking)</p></li>
+<li><p><strong>skiprows</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of initial rows to skip from file (default is 0)</p></li>
+<li><p><strong>out_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to output data, valid mask and attributes (default is
+no output)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>output</strong> – Attributes data, mask and atts contain the corresponding
+information from the data file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module can also be run as a script, with the keyword arguments
+as name_arg=arg</p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

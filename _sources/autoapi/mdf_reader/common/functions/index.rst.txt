@@ -1,0 +1,22 @@
+:mod:`mdf_reader.common.functions`
+==================================
+
+.. py:module:: mdf_reader.common.functions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.common.functions.df_prepend_datetime
+
+
+
+.. function:: df_prepend_datetime(df, date_columns, date_format, date_name='_datetime')
+
+

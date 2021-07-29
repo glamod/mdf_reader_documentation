@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mdf_reader.data_models.code_tables &mdash; mdf_reader v1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> mdf_reader
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-set-up.html">Tool set up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#clone-the-repository">1. Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-a-python-environment">2. Install a python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#install-dependencies">3. Install dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-set-up.html#optional-step-install-jupyter-notebook">4. Optional step: install jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tool-overview.html">Tool overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#input-data-imma-files-and-schemas">Input data: <code class="docutils literal notranslate"><span class="pre">.imma</span></code> files and schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#output">Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#processing-of-the-data-elements">Processing of the data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#data-elements-extraction-and-transformation">Data elements extraction and transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tool-overview.html#validation-of-elements-against-the-schema-or-data-model">Validation of elements against the schema or data model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data-models.html">Data Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data-models.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data-models.html#code-tables">Code tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data-models.html#common-features">Common features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data-models.html#simple-code-tables">Simple code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data-models.html#nested-code-tables">Nested code tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data-models.html#range-keyed-code-tables">Range-keyed code tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-build-a-data-model.html">How to build a data model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#schema-header-block">Schema header block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#schema-element-block">Schema element block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#schema-section-block">Schema section block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#section-header">Section header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#section-elements">Section elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../how-to-build-a-data-model.html#code-tables">Code Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.common</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.tests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../validator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">mdf_reader</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models.code_tables</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/mdf_reader/data_models/code_tables/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-mdf_reader.data_models.code_tables">
+<span id="mdf-reader-data-models-code-tables"></span><h1><a class="reference internal" href="#module-mdf_reader.data_models.code_tables" title="mdf_reader.data_models.code_tables"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdf_reader.data_models.code_tables</span></code></a><a class="headerlink" href="#module-mdf_reader.data_models.code_tables" title="Permalink to this headline">¶</a></h1>
+<p>This module has functions to manage data model
+code table files and objects according to the
+requirements of the data reader tool</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.read_table" title="mdf_reader.data_models.code_tables.read_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_table</span></code></a>(table_path)</p></td>
+<td><p>Reads a data model code table file to a dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.templates" title="mdf_reader.data_models.code_tables.templates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">templates</span></code></a>()</p></td>
+<td><p>Lists the name of the available code table templates</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.copy_template" title="mdf_reader.data_models.code_tables.copy_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_template</span></code></a>(table, out_dir=None, out_path=None)</p></td>
+<td><p>Copies a code table template to an output</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.expand_integer_range_key" title="mdf_reader.data_models.code_tables.expand_integer_range_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_integer_range_key</span></code></a>(d)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.eval_dict_items" title="mdf_reader.data_models.code_tables.eval_dict_items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval_dict_items</span></code></a>(item)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.table_keys" title="mdf_reader.data_models.code_tables.table_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_keys</span></code></a>(table)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.get_nested" title="mdf_reader.data_models.code_tables.get_nested"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nested</span></code></a>(table, *args)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.table_value_from_keys" title="mdf_reader.data_models.code_tables.table_value_from_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_value_from_keys</span></code></a>(table, df)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.toolPath" title="mdf_reader.data_models.code_tables.toolPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toolPath</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.table_lib" title="mdf_reader.data_models.code_tables.table_lib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_lib</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mdf_reader.data_models.code_tables.templates_path" title="mdf_reader.data_models.code_tables.templates_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">templates_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="mdf_reader.data_models.code_tables.toolPath">
+<code class="sig-name descname"><span class="pre">toolPath</span></code><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#toolPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.toolPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.data_models.code_tables.table_lib">
+<code class="sig-name descname"><span class="pre">table_lib</span></code><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#table_lib"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.table_lib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="mdf_reader.data_models.code_tables.templates_path">
+<code class="sig-name descname"><span class="pre">templates_path</span></code><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#templates_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.templates_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.read_table">
+<code class="sig-name descname"><span class="pre">read_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#read_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.read_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a data model code table file to a dictionary.
+It completes the code table to the full complexity
+the data reader expects, by appending information
+on secondary keys and expanding range keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table_path</strong> (<em>str</em>) – The file path of the code table.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Code table</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.templates">
+<code class="sig-name descname"><span class="pre">templates</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#templates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.templates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the name of the available code table templates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Code table template aliases</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.copy_template">
+<code class="sig-name descname"><span class="pre">copy_template</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#copy_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.copy_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a code table template to an output
+file or path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>str</em>) – Code table template name to copy</p>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>out_dir</strong> (<em>dict</em><em>, </em><em>opt</em>) – Directory to copy code table file template to</p></li>
+<li><p><strong>out_path</strong> (<em>dict</em><em>, </em><em>opt</em>) – Full filename to copy code table file template to</p></li>
+<li><p><strong>out_dir</strong><strong> or </strong><strong>out_path must be provided</strong> (<em>Either</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.expand_integer_range_key">
+<code class="sig-name descname"><span class="pre">expand_integer_range_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#expand_integer_range_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.expand_integer_range_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.eval_dict_items">
+<code class="sig-name descname"><span class="pre">eval_dict_items</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#eval_dict_items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.eval_dict_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.table_keys">
+<code class="sig-name descname"><span class="pre">table_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#table_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.table_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.get_nested">
+<code class="sig-name descname"><span class="pre">get_nested</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#get_nested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.get_nested" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="mdf_reader.data_models.code_tables.table_value_from_keys">
+<code class="sig-name descname"><span class="pre">table_value_from_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mdf_reader/data_models/code_tables.html#table_value_from_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mdf_reader.data_models.code_tables.table_value_from_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Berry, Irene Perez Gonzalez and Beatriz Recinos.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

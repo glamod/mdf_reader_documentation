@@ -1,0 +1,16 @@
+:mod:`mdf_reader.data_models`
+=============================
+
+.. py:module:: mdf_reader.data_models
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   code_tables/index.rst
+   schemas/index.rst
+
+

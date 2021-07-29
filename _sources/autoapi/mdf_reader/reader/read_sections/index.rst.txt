@@ -1,0 +1,54 @@
+:mod:`mdf_reader.reader.read_sections`
+======================================
+
+.. py:module:: mdf_reader.reader.read_sections
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.reader.read_sections.extract_fixed_width
+   mdf_reader.reader.read_sections.extract_delimited
+   mdf_reader.reader.read_sections.read_data
+   mdf_reader.reader.read_sections.main
+
+
+
+.. function:: extract_fixed_width(section_serie_bf, section_schema)
+
+
+.. function:: extract_delimited(section_serie_bf, section_schema)
+
+
+.. function:: read_data(section_df, section_schema)
+
+
+.. function:: main(sections_df, schema)
+
+   Returns a pandas dataframe with a report per row
+   and the report sections split along the columns.
+   Each section is a block string and only the sections
+   listed in read_sections parameter are output.
+
+   :param sections_df: Pandas dataframe with a column per report sections.
+                       The sections in the columns as a block strings.
+   :type sections_df: pandas.DataFrame
+   :param schema: Data source data model schema
+   :type schema: dict
+
+   :returns: * **data** (*pandas.DataFrame*) -- Dataframe with the report section elements split
+               along the columns. Multiindex if bla, regular index
+               if ble
+             * **mask** (*pandas.DataFrame*) -- Dataframe with the report section elements split
+               along the columns. Multiindex if bla, regular index
+               if ble
+             * **dtypes** (*dict*) -- Dictionary with pandas data types for each of the
+               output elements
+
+

@@ -1,0 +1,94 @@
+:mod:`mdf_reader`
+=================
+
+.. py:module:: mdf_reader
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   common/index.rst
+   data_models/index.rst
+   reader/index.rst
+   tests/index.rst
+   validator/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   __main__/index.rst
+   properties/index.rst
+   read/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.read
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mdf_reader.__version__
+
+
+.. function:: read(source, data_model=None, data_model_path=None, sections=None, chunksize=None, skiprows=None, out_path=None)
+
+   Reads a data file to a pandas DataFrame using a pre-defined data model.
+   Read data is validates against its data model producing a boolean mask
+   on output.
+
+   The data model needs to be input to the module as a named model
+   (included in the module) or as the path to a valid data model.
+
+   :param source: The file path to read
+   :type source: str
+
+   :keyword data_model: Name of internally available data model
+   :kwtype data_model: str, optional
+   :keyword data_model_path: Path to external data model
+   :kwtype data_model_path: str, optional
+   :keyword sections: List with subset of data model sections to outpu (default is
+                      all)
+   :kwtype sections: list, optional
+   :keyword chunksize: Number of reports per chunk (default is
+                       no chunking)
+   :kwtype chunksize: int, optional
+   :keyword skiprows: Number of initial rows to skip from file (default is 0)
+   :kwtype skiprows: int, optional
+   :keyword out_path: Path to output data, valid mask and attributes (default is
+                      no output)
+   :kwtype out_path: str, optional
+
+   :returns: **output** -- Attributes data, mask and atts contain the corresponding
+             information from the data file.
+   :rtype: object
+
+   .. note::
+
+      This module can also be run as a script, with the keyword arguments
+      as name_arg=arg
+
+
+.. data:: __version__
+   :annotation: = 1.1
+
+   
+
