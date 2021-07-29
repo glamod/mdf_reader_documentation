@@ -210,7 +210,7 @@ All elements attributes, some of which are data type specific, are listed and de
 - ``field_length``
       - Numeric integer descriptor that determines the field length of the elements (number of bytes or number of characters in a report string).
       - Applies to the schema format type: ``fixed_width`` and is a mandatory field in the element block.
-      - It can be set to `null`, or not present; if the element is unique in a section whose length is unknown and if this section is the last in the data model (e.g. like it is usually the case for ICOADS supplemental data section c99). If this is the case and the length is unknown the default will be set by the function `mdf_reader.properties.MAX_FULL_REPORT_WIDTH() <https://mdf-reader.readthedocs.io/en/mdf_reader/autoapi/mdf_reader/properties/index.html#module-mdf_reader.properties>`_, which sets the ``field_length`` to 100000.
+      - It can be set to `null`, or not present; if the element is unique in a section whose length is unknown and if this section is the last in the data model (e.g. like it is usually the case for ICOADS supplemental data section c99). If this is the case and the length is unknown the default will be set by the function :py:func:`mdf_reader.properties.MAX_FULL_REPORT_WIDTH()`, which sets the ``field_length`` to 100000.
 
 - ``column_type``
       - Numeric integer descriptor that determines the element data type.

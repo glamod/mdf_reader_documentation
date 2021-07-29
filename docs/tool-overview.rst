@@ -67,7 +67,7 @@ The data element extraction and transformation from the initial string to the ou
 
 1. **Elements extraction and missing data tagging**:
 
-   Done using `mdf_reader.import_data.main() <https://mdf-reader.readthedocs.io/en/mdf_reader/autoapi/mdf_reader/reader/import_data/index.html#module-mdf_reader.reader.import_data>`_, where individual data elements are extracted as 'objects' from the full report string and missing data is recognised as ``NA/NaN`` values in the resulting dataframe.
+   Done using :py:func:`mdf_reader.reader.import_data()`, where individual data elements are extracted as 'objects' from the full report string and missing data is recognised as ``NA/NaN`` values in the resulting dataframe.
 
    Strings that are recognised as missing from the source are `pandas` defaults, plus:
 

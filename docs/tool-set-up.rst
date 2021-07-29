@@ -13,7 +13,7 @@ The mdf_reader is a pure Python package, but it has a few dependencies that rely
 
 Clone the latest version via::
 
-      $ git clone git@git.noc.ac.uk:brecinosrivas/mdf_reader.git
+      $ git clone git@github.com:glamod/mdf_reader.git
 
 .. _git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
